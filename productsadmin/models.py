@@ -8,3 +8,6 @@ class Product(models.Model):
     desc = models.CharField(max_length=300, null=False, blank=False)
     sale = models.BooleanField(null=False, blank=False, default=False)
     sale_price = models.FloatField(null=False, blank=False,)
+
+    def __str__(self):
+        return self.name # displays the item name in the Admin panel instead of 'Item /number'
