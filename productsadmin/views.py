@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import Product
-
 # Create your views here.
 
 
@@ -23,10 +22,5 @@ def add_prod(request):
         return redirect('show_prod')
     return render(request, 'admin/add_prod.html')
 
-
-def remove_prod(request):
-    if request.method == "POST":
-        id = request.POST.get("id")
-        Product.objects.delete(id=id)
-        return redirect('show_prod')
-    return render(request, 'admin/remove_prod.html')
+def edit_prod(request, prod_id):
+    return render(request, 'productsadmin/edit_prod.html')

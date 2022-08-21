@@ -29,7 +29,7 @@
                                 {{ product.sale_price }}
                         {% endif %}
                     </td>
-                    <td style="text-align: center;"><a href="">{{ product.id }}</a></td>
+                    <td style="text-align: center;"><a href="/edit/{{ product.id }}"><button>Edit</button></a></td>
             </tr>
         {% empty %}
             <tr>

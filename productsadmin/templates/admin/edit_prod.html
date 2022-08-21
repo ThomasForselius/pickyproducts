@@ -7,9 +7,9 @@
     <title>Admin</title>
 </head>
 <body>
-    <h1>Add products</h1>
+    <h1>Edit product</h1>
     <!-- {{ products }} -->
-   <form method="POST" action="add">
+   <form method="POST">
     {% csrf_token %}
     <label for="name">Name: </label>
     <input type="text" id="id_name" name="name" maxlength="30" required/><br>
@@ -21,6 +21,6 @@
     <input type="number" id="sale_price" name="sale_price" required/><br>
     <label for="sale">Sale: </label>
     <input type="checkbox" id="sale" name="sale">
-    <input type="submit" value="Add new item">
+    <input type="submit" value="Update item">
    </form>
 </html>
