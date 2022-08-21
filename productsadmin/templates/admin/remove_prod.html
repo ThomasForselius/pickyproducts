@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Admin page for removing products</h1>
+    <!-- {{ products }} -->
+    <table style="border: 1px solid black; padding: 1px;">
+        <tr>
+            <th>Name: </th>
+            <th>Description:</th>
+            <th>Price: </th>
+            <th>Delete:</th>
+        </tr>
+        {% for product in products %} <!-- Iterates through the dictionary 'products' -->
+            <tr>
+                    <td>Name: {{product.name}}</td>
+                    <td>{{ product.desc}}</td>
+                    <td>
+                                {{ product.price }}
+                    </td>
+                    <td><a href="">{{ product.id }}</a></td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>
+                    There are no products yet
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/add">Add a new product</a>
+</html>
