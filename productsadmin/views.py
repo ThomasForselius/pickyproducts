@@ -32,6 +32,7 @@ def edit_prod(request, prod_id):
         sale = 'sale' in request.POST
         sale_price = request.POST.get("sale_price")
         Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+        Product.objects.filter(pk=prod_id).de
         return redirect('show_prod')
     context = {
         'name' : prod.name,
