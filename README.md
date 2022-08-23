@@ -18,18 +18,48 @@ Django project CMS for CRUD operations regarding PickyFrame
 
 These are the installing and deployment steps for starting and running a Django project:
 
-- pip3 install 'django<4' / to get the latest verion before 4, since 4 is not long term supported
-- 'django-admin startproject pickyproducts .'  / starts a new django project with the name 'pickyproducts'
-- 'python3 manage.py startapp productsadmin' / starts a new django app with the name 'productsadmin'
-- 'python3 manage.py runserver' / starts the django server
-- 'python3 manage.py migrate' / creates basic databases
-- 'python3 manage.py createsuperuser' / creates superuser
+-   ```
+    pip3 install 'django<4'
+    ````
+    to get the latest verion before 4, since 4 is not long term supported
+-   ```
+    django-admin startproject pickyproducts .
+    ``` 
+    starts a new django project with the name 'pickyproducts'
+-   ````
+    python3 manage.py startapp productsadmin
+    ````
+    starts a new django app with the name 'productsadmin'
+-   ```
+    python3 manage.py runserver
+    ```
+    starts the django server
+-   ```
+    python3 manage.py migrate
+    ````
+    creates basic databases
+-   ````
+    python3 manage.py createsuperuser
+    ````
+    creates superuser in db
 - Create/update db model in *models.py* / this is where you design your model structure
-- 'python3 manage.py makemigrations' / sets up new model for db, ready for migration
-- 'python3 manage.py migrate' / creates new migration in db
+-   ````
+    python3 manage.py makemigrations
+    ````
+    sets up new model for db, ready for migration
+-   ````
+    python3 manage.py migrate
+    ````
+    creates new migration in db
 - Open admin.py and add: 
-    - 'from models import Product' / Note: 'Product' is the name of the table created in *models.py*
-    - 'admin.site.register(Product)'
+    -   ```python
+        from models import Product
+        ````
+        Note: Product is the name of the table created in *models.py*
+    - further down, add the following: 
+        -   ```python
+            admin.site.register(Product)
+            ```
 
 ## Showing items from db: 
 
@@ -134,9 +164,13 @@ To add items to the database you need to add a frontend page by following these 
         ```
         *edit_prod* is the name of the class defined in 'views.py'
     - In the *urlpatterns* section, add the following: 
-        - path('edit/<prod_id>', edit_prod, name='edit_prod') 
+        -   ```python
+            path('edit/<prod_id>', edit_prod, name='edit_prod') 
+            ```
 - To make sure that only the selected item in the db is updated, the following code must be added: 
-    Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+    -   ```python 
+        Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+        ```
     - the *.filter(pk=prod_id)* part filters out a selected item to be updated via the *.update()* function that follows
 - Create a new file called *edit_prod.html*. This wil be a clone of *add_prod.html*, but will populate the fields based on the data that is got from the db.
 - To populate the corresponding input field, use the following codes:
