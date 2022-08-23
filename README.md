@@ -3,6 +3,7 @@ Django project CMS for CRUD operations regarding PickyFrame
 
 # Installing Django
 # Reading and Showing products from db
+# Showing products from db
 # Adding products to db
 # Updating products in db
 # Deleting product from db
@@ -59,12 +60,73 @@ These are the installing and deployment steps for starting and running a Django 
 
 To add items to the database you need to add a frontend page by following these steps:
 
-- in the /templates/admin/ folder, add a new page called "show_prod.html"
-- In 'urls.py', add the following information behind *from productsadmin.views import show_prod*: 
-    - 'add_prod' / 'add_prod' is the name of the class defined in 'views.py'
-    - in urlpatterns, add the following:
-        - 'path('add', add_prod, name='add_prod')
 - In *views.py* add the following:
-    - def add_prod(request):
-    return render(request, 'admin/add_prod.html')
-- In 
+    -   def add_prod(request):
+            if request.method == "POST": 
+                name = request.POST.get("name")
+                price = request.POST.get("price")
+                desc = request.POST.get("desc")
+                sale = 'sale' in request.POST
+                sale_price = request.POST.get("sale_price")
+                Product.objects.create(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+                return redirect('show_prod')
+        return render(request, 'admin/add_prod.html')
+
+        / This will define a function called add_prod
+- In *urls.py*, add the following information behind *from productsadmin.views import show_prod*: 
+    - add_prod / 'add_prod' is the name of the class defined in 'views.py'
+    - in *urlpatterns*, add the following:
+        - 'path('add', add_prod, name='add_prod')
+- In the */templates/admin/* folder, create a new page called "add_prod.html"
+- In the *add_prod.html* page, add your boilerplate html code and form with corresponding input fields to match your product model
+- Now when you click sumbit, the field values will transfer to the views.py file and be inserted into the db
+- You will then be redirected back to *show_prod.html* where the newly added product should appear
+
+## Updating items in db
+
+- In *views.py*, add the following information behind *render, redirect*: 
+    - get_object_or_404 / *this function imports the product form the db using the prod_id as a primary key*
+- In *views.py*, create a new function called edit_prod with the following code:
+    
+    def edit_prod(request, prod_id): 
+        prod = get_object_or_404(Product, id=prod_id)
+        if request.method == "POST":
+            name = request.POST.get("name")
+            price = request.POST.get("price")
+            desc = request.POST.get("desc")
+            sale = 'sale' in request.POST
+            sale_price = request.POST.get("sale_price")
+            Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+            return redirect('show_prod')
+        context = {
+            'name' : prod.name,
+            'price' : prod.price,
+            'desc' : prod.desc,
+            'sale' : prod.sale,
+            'sale_price' : prod.sale_price
+        }
+        return render(request, 'admin/edit_prod.html', context)
+
+- In *urls.py*, add the following information behind *from productsadmin.views import show_prod, add_prod*: 
+    - edit_prod / 'edit_prod' is the name of the class defined in 'views.py'
+    - In the *urlpatterns* section, add the following: 
+        - path('edit/<prod_id>', edit_prod, name='edit_prod') 
+- To make sure that only the selected item in the db is updated, the following code must be added: 
+    Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+    - the *.filter(pk=prod_id)* part filters out a selected item to be updated via the *.update()* function that follows
+- Create a new file called *edit_prod.html*. This wil be a clone of *add_prod.html*, but will populate the fields based on the data that is got from the db.
+- To populate the corresponding input field, use the following codes:
+    - {{ name }} / *imports the value of name*
+    - {{ price }} / *imports the value of price*
+    - {{ desc }} / *imports the value of desc*
+    - {{ sale_price }} / *imports the value of sale_price*
+    - {{ sale }} / *imports the value of sale*
+        - Since *sale* is a boolean function, the following if-loop will display a checked checkbox if sale equals True
+        -   {% if sale == True %}
+            <input type="checkbox" id="sale" name="sale" checked>
+            {% else %}
+            <input type="checkbox" id="sale" name="sale" >
+            {% endif %}
+            
+- Now when you click sumbit, the field values will transfer to the views.py file and be inserted into the db. 
+- You will then be redirected back to *show_prod.html* where the newly added product should appear
