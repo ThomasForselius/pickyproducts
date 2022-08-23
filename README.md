@@ -135,12 +135,28 @@ To add items to the database you need to add a frontend page by following these 
     - the *.filter(pk=prod_id)* part filters out a selected item to be updated via the *.update()* function that follows
 - Create a new file called *edit_prod.html*. This wil be a clone of *add_prod.html*, but will populate the fields based on the data that is got from the db.
 - To populate the corresponding input field, use the following codes:
-    - {{ name }} / *imports the value of name*
-    - {{ price }} / *imports the value of price*
-    - {{ desc }} / *imports the value of desc*
-    - {{ sale_price }} / *imports the value of sale_price*
-    - {{ sale }} / *imports the value of sale*
-        - Since *sale* is a boolean function, the following if-loop will display a checked checkbox if sale equals True
+    -   ```python
+        {{ name }}
+        ```
+         *imports the value of name*
+    -   ```python
+        {{ price }}
+        ```
+        *imports the value of price*
+    -   ```python
+        {{ desc }}
+        ````
+        *imports the value of desc*
+    -   ```python
+        {{ sale_price }}
+        ```
+        *imports the value of sale_price*
+    -   ```python
+        {{ sale }}
+        ````
+        *imports the value of sale*
+        
+    - Since *sale* is a boolean function, the following if-loop will display a checked checkbox if sale equals True
         -   ```python
             {% if sale == True %}
             <input type="checkbox" id="sale" name="sale" checked>
