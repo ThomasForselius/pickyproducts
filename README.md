@@ -24,6 +24,9 @@ These are the installing and deployment steps for starting and running a Django 
 - Open admin.py and add: 
     - 'from models import Product' / Note: 'Product' is the name of the table created in *models.py*
     - 'admin.site.register(Product)'
+
+## Showing items from db: 
+
 - In *views.py* , add a new class using the following lines:
     - def show_prod(request):
         products = Product.objects.all()
@@ -32,26 +35,29 @@ These are the installing and deployment steps for starting and running a Django 
         }
         return render(request, 'admin/show_prod.html', context)
 
-        *the variable 'products' is what you use to show products in show_prod.html, by using a for-loop to iterate through.
+        *the variable 'products' is what you use to show products in show_prod.html, by using a for-loop to iterate through*.
         
-        i.e. {% for product in products %}
-        *
+        *i.e. {% for product in products %}*
+
 - In *urls.py*, add the following information: 
     - 'from productsadmin.views import show_prod' / *show_prod* is the name of the class defined in *views.py*
     - in urlpatterns, add the following:
         - 'path('', show_prod, name='show_prod')
+
 - Now go to your local server and add '/admin' in the address field to access admin panel
 - Login using the superuser credentials you created earlier
 - Under the Users table, Products should appear
-
 - To make added items display names instead of 'Item #number' in products table the following line has to be added to *models.py*:
     -  def __str__(self):
         return self.name
 
+- In the file show_prod.html, use this code to iterate through the dictionary of items imported from the view.py file:
+    -  {% for product in products %} 
+    - now in this for-loop you can use *product.name, product.id, product.price and so on to display eache key value*
 
-## Showing items from db:
+## Adding items to db:
 
-To show the items from the database you need to add a frontend page by following these steps:
+To add items to the database you need to add a frontend page by following these steps:
 
 - in the /templates/admin/ folder, add a new page called "show_prod.html"
 - In 'urls.py', add the following information behind *from productsadmin.views import show_prod*: 
