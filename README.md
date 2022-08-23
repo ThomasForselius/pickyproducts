@@ -1,12 +1,18 @@
 # pickyproducts
 Django project CMS for CRUD operations regarding PickyFrame
 
-> [Installing Django](#install-django)
-> [Showing items from db](#showing-items-from-dbproducts)
-> [Adding Item to db](#adding-items-to-db)
-> [Updating Item in db](#updating-items-in-db)
-> [Deleting Item from db](#deleting-item-from-db)
-
+> 1. [What is it](#what-is-it)
+> 2. [User Story](#user-story)
+> 3. [UI & UX](#ui-&-ux)
+> 4. [Installing Django](#install-django)
+> 5. [Showing items from db](#showing-items-from-dbproducts)
+> 6. [Adding Item to db](#adding-items-to-db)
+> 7. [Updating Item in db](#updating-items-in-db)
+> 8. [Deleting Item from db](#deleting-item-from-db)
+> 9. [Testing](#testing)
+> 10. [Deployment](#deployment)
+> 11. [Tech](#technologies) 
+> 12. [Support](#support)
 
 ## Install Django: 
 
