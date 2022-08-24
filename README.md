@@ -223,5 +223,14 @@ To add items to the database you need to add a frontend page by following these 
     ```
 - In *urls.py*, add the following path: 
     ```python
-        path('remove/<prod_id>', views.remove_prod, name='remove_prod')
+        path('remove/<prod_id>', remove_prod, name='remove_prod')
+    ```
+- In *urls.py*, add the following path to import view: 
+    - After 
+    ```python
+        from productsadmin.views import ...
+    ```
+    Add this to import that view: 
+    ```python
+        remove_prod
     ```
