@@ -49,3 +49,10 @@ def remove_prod(request, prod_id):
     Product.objects.filter(pk=prod_id).delete()
     return redirect('show_prod')
     
+
+def toggle_prod(request, prod_id):
+    prod = get_object_or_404(Product, id=prod_id)
+    prod.sale = not prod.sale
+    prod.save()
+    return redirect('show_prod')
+    
