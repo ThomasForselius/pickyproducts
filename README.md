@@ -211,12 +211,12 @@ To add items to the database you need to add a frontend page by following these 
 ## Deleting item from db
 
 - In *views.py*, add the following to create a new function called *remove_prod*: 
-```python
-    def remove_prod(request, prod_id):
-    prod = get_object_or_404(Product, id=prod_id)
-    Product.objects.filter(pk=prod_id).delete()
-    return redirect('show_prod')
-```
+    ```python
+        def remove_prod(request, prod_id):
+        prod = get_object_or_404(Product, id=prod_id)
+        Product.objects.filter(pk=prod_id).delete()
+        return redirect('show_prod')
+    ```
 - In your show_prod.html, add the following to create a button for the delete function: 
     ```html
         <a href="/remove/{{ product.id }}"><button>Remove</button></a>
