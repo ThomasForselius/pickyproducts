@@ -34,6 +34,7 @@ def edit_prod(request, prod_id):
         Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
         return redirect('show_prod')
     context = {
+        'id' : prod_id,
         'name' : prod.name,
         'price' : prod.price,
         'desc' : prod.desc,
@@ -45,14 +46,6 @@ def edit_prod(request, prod_id):
 
 def remove_prod(request, prod_id):
     prod = get_object_or_404(Product, id=prod_id)
-    if request.method == "POST":
-        Product.objects.filter(pk=prod_id).delete()
-        return redirect('show_prod')
-    context = {
-        'name' : prod.name,
-        'price' : prod.price,
-        'desc' : prod.desc,
-        'sale' : prod.sale,
-        'sale_price' : prod.sale_price
-    }
-    return render(request, 'admin/remove_prod.html', context)
+    Product.objects.filter(pk=prod_id).delete()
+    return redirect('show_prod')
+    
