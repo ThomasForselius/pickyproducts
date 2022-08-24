@@ -128,7 +128,7 @@ To add items to the database you need to add a frontend page by following these 
             ```
 - In the */templates/admin/* folder, create a new page called "add_prod.html"
 - In the *add_prod.html* page, add your boilerplate html code and form with corresponding input fields to match your product model
-- Now when you click sumbit, the field values will transfer to the views.py file and be inserted into the db
+- Now when you click sumbit, the field values will transfer to the *views.py* file and be inserted into the db
 - You will then be redirected back to *show_prod.html* where the newly added product should appear
 
 ## Updating items in db
