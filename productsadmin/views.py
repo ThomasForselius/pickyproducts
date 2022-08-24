@@ -41,3 +41,11 @@ def edit_prod(request, prod_id):
         'sale_price' : prod.sale_price
     }
     return render(request, 'admin/edit_prod.html', context)
+
+
+def remove_prod(request, prod_id):
+    prod = get_object_or_404(Product, id=prod_id)
+    if request.method == "POST":
+        Product.objects.filter(pk=prod_id).delete()
+        return redirect('show_prod')
+    return render(request, 'admin/edit_prod.html')
