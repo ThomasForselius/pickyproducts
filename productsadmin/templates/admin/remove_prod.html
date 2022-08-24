@@ -7,7 +7,7 @@
     <title>Admin</title>
 </head>
 <body>
-    <h1>Admin page for removing products</h1>
+    <h1>Admin page for removing product: {{ product.id }}</h1>
     <!-- {{ products }} -->
     <table style="border: 1px solid black; padding: 1px;">
         <tr>
@@ -18,8 +18,8 @@
         </tr>
         {% for product in products %} <!-- Iterates through the dictionary 'products' -->
             <tr>
-                    <td>Name: {{product.name}}</td>
-                    <td>{{ product.desc}}</td>
+                    <td>Name: {{name}}</td>
+                    <td>{{ product.desc }}</td>
                     <td>
                                 {{ product.price }}
                     </td>

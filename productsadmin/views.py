@@ -48,4 +48,11 @@ def remove_prod(request, prod_id):
     if request.method == "POST":
         Product.objects.filter(pk=prod_id).delete()
         return redirect('show_prod')
-    return render(request, 'admin/edit_prod.html')
+    context = {
+        'name' : prod.name,
+        'price' : prod.price,
+        'desc' : prod.desc,
+        'sale' : prod.sale,
+        'sale_price' : prod.sale_price
+    }
+    return render(request, 'admin/remove_prod.html', context)
