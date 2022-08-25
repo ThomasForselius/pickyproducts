@@ -16,7 +16,7 @@ Django project CMS for CRUD operations regarding PickyFrame
 
 ## What is PickyProducts?
 
-- PickyProducts is a Fullstack project from me, Thomas Forselius; a '22 season student at CodeInstitute front end developer course. 
+PickyProducts is a Fullstack project from me, Thomas Forselius; a '22 season student at CodeInstitute front end developer course. 
 The project is a front end page, that has admin/crud capabilities for managing products in a database. 
 
 The idea and goal with this project is to implement it into my upcoming website that is in the works and will be launched later in the year. 
@@ -34,29 +34,29 @@ It will have a webshop that will utilize the same products and database as this 
 
 ## Install Django: 
 
-- These are the installing and deployment steps for starting and running a Django project:
+These are the installing and deployment steps for starting and running a Django project:
 
-    to get the latest verion before 4, since 4 is not long term supported
+- to get the latest verion before 4, since 4 is not long term supported
 -   ```
     pip3 install 'django<4'
     ```
-    starts a new django project with the name 'pickyproducts'
+- starts a new django project with the name 'pickyproducts'
 -   ```
     django-admin startproject pickyproducts .
     ``` 
-    starts a new django app with the name 'productsadmin'
+- starts a new django app with the name 'productsadmin'
 -   ```
     python3 manage.py startapp productsadmin
     ```
-    starts the django server
+- starts the django server
 -   ```
     python3 manage.py runserver
     ```
-    creates basic databases
+- creates basic databases
 -   ```
     python3 manage.py migrate
     ```
-    creates superuser in db
+- creates superuser in db
 -   ```
     python3 manage.py createsuperuser
     ```
@@ -65,7 +65,7 @@ It will have a webshop that will utilize the same products and database as this 
 -   ```
     python3 manage.py makemigrations
     ```    
-    creates new migration in db / creates tables and relations
+- creates new migration in db / creates tables and relations
 -   ```
     python3 manage.py migrate
     ```
