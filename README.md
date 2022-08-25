@@ -1,9 +1,9 @@
 # pickyproducts
 Django project CMS for CRUD operations regarding PickyFrame
 
-> 1. [What is it](#what-is-it)
-> 2. [User Story](#user-story)
-> 3. [UI & UX](#ui-&-ux)
+> 1. [What is it](#what-is-pickyproducts)
+> 2. [UI & UX](#ui-&-ux)
+> 3. [Features and pages](#features-and-pages)
 > 4. [X] [Installing Django](#install-django)
 > 5. [X] [Showing items from db](#showing-items-from-dbproducts)
 > 6. [X] [Adding Item to db](#adding-items-to-db)
@@ -14,9 +14,27 @@ Django project CMS for CRUD operations regarding PickyFrame
 > 11. [Tech](#technologies) 
 > 12. [Support](#support)
 
+## What is PickyProducts?
+
+- PickyProducts is a Fullstack project from me, Thomas Forselius; a '22 season student at CodeInstitute front end developer course. 
+The project is a front end page, that has admin/crud capabilities for managing products in a database. 
+
+The idea and goal with this project is to implement it into my upcoming website that is in the works and will be launched later in the year. 
+It will have a webshop that will utilize the same products and database as this project. It's so much more enticing to acutally code a project that will be used in a real world scenario. This keeps the life of the project fresh!
+
+## Features and pages
+
+- The basic feature of the webpage is a user friendly product management system where you can register as an admin or a regular user. 
+    - As an admin, you want to be able to create, read, update and delete products, by registering at the first page
+    - As a regular user, you want to be able to read products, by registering as a user at the first page
+
+## UI & UX
+
+
+
 ## Install Django: 
 
-These are the installing and deployment steps for starting and running a Django project:
+- These are the installing and deployment steps for starting and running a Django project:
 
     to get the latest verion before 4, since 4 is not long term supported
 -   ```
