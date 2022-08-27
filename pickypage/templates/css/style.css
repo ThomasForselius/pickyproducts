@@ -1,0 +1,75 @@
+blockqoute {
+    font-style: italic;
+}
+body {
+    font-family: Didot, Serif;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-link{
+    color: #fff;
+}
+.navbar-brand{
+    color: #fff;
+}
+.navbar-toggler{
+    top: 0px;
+    border: 1px;
+    margin: none;
+}
+
+.callout-container{
+    height: 100vh;
+
+    background: url(../img/bg_bedroom_blur.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -d-background-size: cover;
+    background-size: cover;  
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.callout-header{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.features-container{
+display: flex;
+justify-content: center;
+margin: 0 20px;
+}
+
+.qoutes-container{
+
+}
+
+.drop:hover{
+    transform:rotate(45deg);
+    -ms-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+    transition: 0.3s ease-in;
+}
+
+.rotate60 {
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    -ms-transition: -ms-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;  
+}
+.rotate60:hover {
+    transform:rotate(60deg);
+    -ms-transform:rotate(60deg);
+    -webkit-transform:rotate(60deg);
+}
