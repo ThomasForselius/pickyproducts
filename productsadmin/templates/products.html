@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row"></div>
+
+    {% for product in products %}
+        <p>{{ product.name }}</p>
+        <p>{{ product.sale }}</p>
+    {% endfor %}
+
+
+    <div class="col-12 col-md-6 col-lg-4 my-2">
+        <div style="text-align: center;">
+            <h4>Slim design <span class="badge bg-success">new!</span></h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque alias ad, voluptates error delectus sapiente fugit id molestiae tempore ab. Molestiae eaque nemo voluptatem voluptatum sequi, est magni doloribus ducimus?</p>
+        </div>
+    </div>
+
+{% endblock content %}

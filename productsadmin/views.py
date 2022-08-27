@@ -8,8 +8,8 @@ def show_prod(request):
     context = {
         'products' : products
     }
-    #return render(request, 'admin/show_prod.html', context)
-    return render(request, 'base.html', context)
+    return render(request, 'admin/show_prod.html', context)
+    #return render(request, 'base.html', context)
 
 
 def add_prod(request):
