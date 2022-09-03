@@ -1,4 +1,4 @@
-blockqoute {
+.blockqoute {
     font-style: italic;
 }
 body {
@@ -6,7 +6,9 @@ body {
 }
 
 .centered{
-    margin: 0 auto;
+    margin: auto auto;
+    display: flex;
+    justify-content: center;
 }
 
 .bottom-button{
@@ -94,7 +96,7 @@ margin: 20px 20px;
 .form{
     text-align: center;
     margin: 50px auto;
-    background-color: #black;
+    background-color: #000;
     position: absolute;
     min-width: 300px;
     padding: 10px;
@@ -113,4 +115,12 @@ margin: 20px 20px;
 .form-text{
     bottom: 50px;
     margin: 0 auto;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.block{
+    display: block;
 }

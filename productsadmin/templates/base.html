@@ -16,17 +16,18 @@
 </head>
 <body>
     <nav class="navbar navbar-dark nav navbar-expand-sm fixed-top">
-        <a href="/" class="navbar-brand mx-4">PickyFrame</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <a href="/" class=" d-sm-block d-md-none d-lg-none navbar-brand mx-4">PickyFrame</a>
+        <!--<a href="/" class="navbar-brand d-sm-none d-md-inline centered">PickyFrame</a>-->
+        <button class="navbar-toggler mx-3" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span>
                 <i class="fa-solid fa-angles-down drop"></i>
         </span>
         </button>
         
-        <div class="collapse navbar-collapse mx-30" id="nav">
-            <ul class="navbar-nav centered">
-                <li class="active nav-item mr-2"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item mr-2"><a href="/" class="nav-link">Display</a></li>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav centered mx-2">
+                <li class="active nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="/" class="nav-link">Display</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="colors" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Colors</a>
                     <div class="dropdown-menu" aria-labelledby="colors">
@@ -39,11 +40,11 @@
             
             </ul>
         </div>
-        <div class="d-none d-sm-block">
-            <ul class="navbar-nav ms-auto d-none d-sm-inline">
+        <div class="d-sm-inline">
+            <ul class="navbar-nav d-sm-inline">
                 <li>
                     {% if user.is_authenticated %}
-                    <a class="nav-link mx-3" data-toggle="modal" data-target="#user_modal"><i class="fa-regular fa-user mx-2"></i> {{ user }}</a>
+                    <a class="nav-link icon active mx-3" data-toggle="modal" data-target="#user_modal"><i class="fa-regular fa-user mx-2"></i> {{ user }}</a>
                     {% else %}
                     <a href="/" class="nav-link me-2" data-toggle="modal" data-target="#staticBackdrop">Sign In / Sign Up</a>
                     {% endif %}
@@ -129,33 +130,24 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Register / Login</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body centered">
                 <form method="POST" action="login_user">
                     {% csrf_token %}    
                     <div class="form-group">
-                      <label for="username">Email address</label>
+                      <label for="username" class="centered">Email address</label>
                       <input type="username" class="form-control" name="username" aria-describedby="emailHelp">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
-                      <label for="password">Password</label>
+                      <label for="password" class="centered">Password</label>
                       <input type="password" class="form-control" name="password">
                     </div>
-                     <div class="form-group form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <div class="centered">
+                        <button type="submit" class="btn btn-secondary my-2 w-100">Login</button>
+                        <a class="link" href="{% url 'register_user' %}">Don't have an account? Register</a>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
@@ -165,16 +157,13 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Logged in as: {{ user }}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+              <h5 class="modal-title centered" id="staticBackdropLabel">Logged in as: <u class="mx-2">{{ user }}</u></h5>
             </div>
             <div class="modal-body">
-                    <a href="{% url 'logout_user' %}" class="btn btn-primary">Logout</a>
+                    <a href="{% url 'logout_user' %}" class="btn btn-secondary centered w-30">Logout</a>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary centered" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>

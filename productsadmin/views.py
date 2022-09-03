@@ -2,6 +2,7 @@ from pickle import NONE
 from urllib import request
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .models import Product
 # Create your views here.
@@ -10,6 +11,25 @@ def logout_user(request):
     logout(request)
     messages.success(request, ("You successfully logged out."))
     return redirect('show_prod')
+
+
+def register_user(request):
+    return render(request, 'admin/register.html', {})
+
+
+#def register_user(request):
+#    if request.method == "POST":
+#        email = request.POST.get("email")
+#        password = request.POST.get("password1")
+#
+#        try:
+#            user = Users.objects.get(username=username)
+#            print("user registered")
+#        except:
+#            messages.error(request, 'Username does not exist!')
+#    return redirect('show_prod')
+
+
 
 def login_user(request):
     if request.method == "POST":
@@ -42,6 +62,14 @@ def show_prod(request):
     return render(request, 'base.html', context)
 
 
+def show(request):
+    products = Product.objects.all()
+    context = {
+        'products' : products
+    }
+    return render(request, 'admin/show_prod.html', context)
+
+
 def add_prod(request):
     if request.method == "POST":
         name = request.POST.get("name")
@@ -50,7 +78,7 @@ def add_prod(request):
         sale = 'sale' in request.POST
         sale_price = request.POST.get("sale_price")
         Product.objects.create(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
-        return redirect('show_prod')
+        return redirect('add_prod')
     return render(request, 'admin/add_prod.html')
 
 
@@ -63,7 +91,7 @@ def edit_prod(request, prod_id):
         sale = 'sale' in request.POST
         sale_price = request.POST.get("sale_price")
         Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
-        return redirect('show_prod')
+        return redirect('show')
     context = {
         'id' : prod_id,
         'name' : prod.name,
@@ -78,12 +106,12 @@ def edit_prod(request, prod_id):
 def remove_prod(request, prod_id):
     prod = get_object_or_404(Product, id=prod_id)
     Product.objects.filter(pk=prod_id).delete()
-    return redirect('show_prod')
+    return redirect('show')
     
 
 def toggle_prod(request, prod_id):
     prod = get_object_or_404(Product, id=prod_id)
     prod.sale = not prod.sale
     prod.save()
-    return redirect('show_prod')
+    return redirect('show')
     

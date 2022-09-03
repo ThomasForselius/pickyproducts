@@ -16,16 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from productsadmin import views
-#from productsadmin.views import login_user, show_prod, add_prod, remove_prod, toggle_prod, edit_prod, logout_user
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.show_prod, name='show_prod'), 
+    path('show', views.show, name='show'), 
     path('add', views.add_prod, name='add_prod'),
     path('edit/<prod_id>', views.edit_prod, name='edit_prod'),
     path('remove/<prod_id>', views.remove_prod, name='remove_prod'),
     path('toggle/<prod_id>', views.toggle_prod, name='toggle'),
     path('login_user', views.login_user, name='login_user'),
     path('logout_user', views.logout_user, name='logout_user'),
+    path('register_user', views.register_user, name='register_user'),
 ]
