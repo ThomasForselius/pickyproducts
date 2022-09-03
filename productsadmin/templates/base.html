@@ -144,7 +144,7 @@
                       <input type="password" class="form-control" name="password">
                     </div>
                     <div class="centered">
-                        <button type="submit" class="btn btn-secondary my-2 w-100">Login</button>
+                        <button type="submit" class="btn btn-primary my-2 w-100">Login</button>
                         <a class="link" href="{% url 'register_user' %}">Don't have an account? Register</a>
                     </div>
                   </form>
@@ -157,9 +157,11 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title centered" id="staticBackdropLabel">Logged in as: <u class="mx-2">{{ user }}</u></h5>
+              <h5 class="modal-title centered" id="staticBackdropLabel">Welcome <p class="mx-2">{{ user }}!</p></h5>
             </div>
             <div class="modal-body">
+                    <a href="{% url 'add_prod' %}" class="btn btn-primary centered w-20">Add products</a>
+                    <a href="{% url 'show' %}" class="btn btn-primary centered w-20">Products list</a>
                     <a href="{% url 'logout_user' %}" class="btn btn-secondary centered w-30">Logout</a>
             </div>
             <div class="modal-footer">
