@@ -1,32 +1,45 @@
 {% extends "admin/admin.html" %}
 {% block content %}
-<body>
-    <h1>Admin page for managing products</h1>
-    <table style="border: 1px solid black; padding: 1px;">
+<article class="article">
+    <table>
         <tr>
             <th>Name: </th>
-            <th>Description:</th>
-            <th></th>
-            <th>Edit item: </th>
-            <th>Remove item: </th>
+            <th class="d-none d-sm-none d-md-block d-lg-block">Description:</th>
+            <th>Price</th>
+            <th style="text-align: center;width: 100px;">On Sale</th>
+            <th style="width: 50px;"></th>
+            <th style="width: 50px;"></th>
         </tr>
-        {% for product in products %} <!-- Iterates through the dictionary 'products' -->
-            <tr>
-                    <td>Name: {{product.name}}</td>
-                    <td>{{ product.desc}}</td>
-                    <td>
-                        {% if product.sale == False %}
-                                {{ product.price }}
-                        {% endif %}
-                        {% if product.sale == True %}
-                        <strike>{{ product.price }}</strike>
-                                {{ product.sale_price }}
-                        {% endif %}
-                    </td>
-                    <td style="text-align: center;"><a href="/edit/{{ product.id }}"><button>Edit</button></a></td>
-                    <td style="text-align: center;"><a href="/remove/{{ product.id }}"><button>Remove</button></a></td>
-                    <td style="text-align: center;"><a href="/toggle/{{ product.id }}"><button>Toggle Sale</button></a></td>
-            </tr>
+        {% for product in products %}
+        <tr>
+            <td>Name: {{product.name}}</td>
+            <td class="d-none d-sm-none d-md-block d-lg-block">{{ product.desc}}</td>
+            <td style="80px; text-align: center;">
+                {% if product.sale == False %}
+                <p style="color: #000; margin: 0;">{{ product.price }}</p>
+                        <strike class="mute">{{ product.sale_price }}</strike>
+                {% endif %}
+                {% if product.sale == True %}
+                <strike class="mute">{{ product.price }}</strike>
+                        <p style="color: darkred; margin: 0;">{{ product.sale_price }}</p>
+                {% endif %}
+            </td>
+            <td style="text-align: center;"><a href="/toggle/{{ product.id }}">
+                {% if product.sale == True %}
+                <i class="fa-solid fa-toggle-on fa-lg"></i>
+                {% else %}
+                <i class="fa-solid fa-toggle-off fa-lg"></i>
+                {% endif %}
+                </a>
+            </td>
+            <td style="text-align: center;"><a href="/edit/{{ product.id }}"><i class="fa-regular fa-pen-to-square"></i></a></td>
+            <td style="text-align: center;">
+                <details>
+                    <summary><i class="fa-solid fa-trash" style="color: #aa0000;"></i></summary>
+                    <a class="btn btn-danger btn-sm" href="/remove/{{ product.id }}">Confirm</a>
+                </details>
+            </td>
+        </tr>
         {% empty %}
             <tr>
                 <td>
@@ -34,7 +47,11 @@
                 </td>
             </tr>
         {% endfor %}
+            <tr class="noborder">
+                <td colspan="6">
+                    <button class="btn link-btn centered my-2"><a href="/add"><i class="fa-solid fa-plus"></i></a></button>
+                </td>
+            </tr>
     </table>
-    <a href="/add">Add a new product</a>
-</html>
+</article>
 {% endblock %}

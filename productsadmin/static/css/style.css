@@ -85,6 +85,8 @@ margin: 20px 20px;
     cursor: pointer;
     text-decoration: none;
     color: #000;
+    border: 1px solid #aaa;
+    background-color: #fff;
 }
 
 .form-container{
@@ -124,3 +126,94 @@ margin: 20px 20px;
 .block{
     display: block;
 }
+
+
+.fa-trash{
+    color: rgb(130, 6, 6);
+}
+
+.mute{
+    color: #999;
+}
+
+.max{
+    max-width: 90vw;
+}
+
+details summary::-webkit-details-marker {
+    display:none;
+}
+details > summary:first-of-type {
+    list-style-type: none;
+}
+
+label, .submit, article > input{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input[type='checkbox']{
+    margin: 20px auto;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 1px solid #444;
+    color:#000;
+}
+
+
+.textarea{
+    min-width: 50px;
+    min-height: 100px;
+}
+
+.article {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    margin: 0 auto;
+    top: 60px;
+    border-radius: 10px;
+}
+
+article > table{
+    width: 100%;
+}
+
+td,th{
+    padding: 5px;
+}
+
+  th{
+    text-align: Left;
+    min-height: 30px;
+    vertical-align: baseline;
+  }
+
+  tr{
+    border-bottom: 1px solid #000;
+  }
+
+  .noborder{
+    border: none;
+    
+  }
+
+  @media screen and (max-width: 400px) {
+    article {
+      width: 90vw;
+      margin: 0 auto;
+    }
+  }
+  
+  @media screen and (min-width: 400px) {
+    article {
+      width: 80vw;
+      margin: 0 auto;
+    }
+
+    article > input[type='textarea']{
+        max-width: 450px;
+        min-width: 250px;
+    }
+  }
