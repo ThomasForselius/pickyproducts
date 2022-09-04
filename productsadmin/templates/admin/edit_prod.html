@@ -7,12 +7,11 @@
         <label for="name">Name:</label>
         <input type="text" id="id_name" name="name" maxlength="30" required value='{{ name }}'/><br>
         <label for="price">Price: </label>
-        <input type="number" id="price" name="price" maxlength="5" required value='{{ price }}'/><br>
+        <input type="number" id="price" name="price" maxlength="3" required value='{{ price }}' oninput="javascript: if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" pattern="[0-9]" onfocus="this.value=(parseInt(this.value)||0)"><br>
         <label for="desc">Description: </label>
         <textarea id="desc" name="desc" required class="centered textarea">{{ desc }}</textarea><br>
         <label for="sale_price">Sale Price: </label>
-        <input type="number" id="sale_price" name="sale_price" required value='{{ sale_price}}'/><br>
-        <label for="sale">Sale: </label>
+        <input type="number" id="sale_price" name="sale_price" maxlength="3" required value='{{ sale_price}}' oninput="javascript: if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" pattern="[0-9]" onfocus="this.value=(parseInt(this.value)||0)"><br>
         {% if sale == True %}
         <input type="checkbox" id="sale" name="sale" checked>
         {% else %}
