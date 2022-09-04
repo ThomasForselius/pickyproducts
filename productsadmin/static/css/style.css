@@ -179,6 +179,9 @@ input[type='checkbox']{
 article > table{
     width: 100%;
 }
+.med{
+    max-width: 500px;
+}
 
 td,th{
     padding: 5px;
@@ -196,7 +199,12 @@ td,th{
 
   .noborder{
     border: none;
-    
+  }
+
+  .border-bottom{
+    border-bottom: 1px solid #222;
+    padding: 10px;
+    margin-bottom: 10px;
   }
 
   @media screen and (max-width: 400px) {
@@ -216,4 +224,15 @@ td,th{
         max-width: 450px;
         min-width: 250px;
     }
+  }
+
+  .user{
+    z-index: 1031;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    right: 0px;
+    height: 65px;
   }

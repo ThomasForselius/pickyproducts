@@ -25,14 +25,10 @@
             <li class="nav-item"><a href="{% url 'show' %}" class="nav-link">Show</a></li>
         </ul>
         </div>
-        <div class="d-sm-inline">
-            <ul class="navbar-nav d-sm-inline">
-                <li>
-                    {% if user.is_authenticated %}
-                    <a class="nav-link icon active mx-3" data-toggle="modal" data-target="#user_modal"><i class="fa-regular fa-user mx-2"></i> {{ user }}</a>
-                    {% endif %}
-                </li>
-            </ul>
+        <div class="user">
+            {% if user.is_authenticated %}
+            <a class="nav-link icon active mx-3" data-toggle="modal" data-target="#user_modal"><i class="fa-regular fa-user mx-2"></i> {{ user }}</a>
+            {% endif %}
         </div>
     
     

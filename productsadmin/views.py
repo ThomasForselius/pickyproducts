@@ -1,3 +1,4 @@
+from email import message
 from pickle import NONE
 from urllib import request
 from django.shortcuts import render, redirect, get_object_or_404
@@ -9,7 +10,6 @@ from .models import Product
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ("You successfully logged out."))
     return redirect('show_prod')
 
 
@@ -30,27 +30,20 @@ def register_user(request):
 #    return redirect('show_prod')
 
 
-
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
 
-        try:
-            user = Users.objects.get(username=username)
-            print(email)
-        except:
-            messages.error(request, 'Username does not exist!')
         user = authenticate(request, username=username, password=password)
         if user:
             login(request, user)
-            print("success")
             return redirect('show_prod')
         else: 
-            print("wrong login")
+            messages.error(request, 'Username does not exist!')
             return redirect('login_user')
     else: 
-        return render(request, 'login.html', {})
+        return render(request, 'login.html')
 
 
 def show_prod(request):
@@ -58,7 +51,6 @@ def show_prod(request):
     context = {
         'products' : products
     }
-    #return render(request, 'admin/show_prod.html', context)
     return render(request, 'base.html', context)
 
 
@@ -78,6 +70,7 @@ def add_prod(request):
         sale = 'sale' in request.POST
         sale_price = request.POST.get("sale_price")
         Product.objects.create(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+        messages.error(request, 'Product added successfully!')
         return redirect('add_prod')
     return render(request, 'admin/add_prod.html')
 
