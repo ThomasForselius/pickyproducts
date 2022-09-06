@@ -1,19 +1,19 @@
 {% extends 'admin/admin.html' %}
 {% block content %}
 
-{% if messages %}
-{% for message in messages%}
-<div class="alert alert-warning" role="alert">
-    {{ message }}
-</div>    
-{% endfor %}
-{% endif %}
 <form method="POST" action="{% url 'register_user' %}">
     {% csrf_token %}
     <article class="article med">
+        {% if messages %}
+        {% for message in messages%}
+        <div class="alert alert-warning centered" role="alert">
+            {{ message }}
+        </div>    
+        {% endfor %}
+        {% endif %}
         <h3 class="centered border-bottom">Register new user:</h3>
         <label for="name">Name: </label>
-        <input type="text" id="id_name" name="name" maxlength="30" required/><br>
+        <input type="text" id="name" name="name" maxlength="30" required/><br>
         <label for="email">Email: </label>
         <input type="email" id="email" name="email" required/><br>
         <label for="password1">Password:</label>

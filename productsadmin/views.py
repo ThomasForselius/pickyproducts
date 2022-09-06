@@ -3,7 +3,7 @@ from pickle import NONE
 from urllib import request
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Product
 # Create your views here.
@@ -12,35 +12,50 @@ def logout_user(request):
     logout(request)
     return redirect('show_prod')
 
-
 def register_user(request):
-    return render(request, 'admin/register.html', {})
-
-
-#def register_user(request):
-#    if request.method == "POST":
-#        email = request.POST.get("email")
-#        password = request.POST.get("password1")
-#
-#        try:
-#            user = Users.objects.get(username=username)
-#            print("user registered")
-#        except:
-#            messages.error(request, 'Username does not exist!')
-#    return redirect('show_prod')
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        password = request.POST.get("password1")
+        try: 
+            check_mail = User.objects.get(email=email)
+            messages.error(request, "Account with that email already exists. Please try again")
+            return render(request, 'admin/register.html')      
+        except User.DoesNotExist:
+            pass
+        newuser = User.objects.create_user(name,email, password)
+        newuser.save()
+        user_check = authenticate(request, username=name,password=password)
+        try:
+            login(request, user_check)
+            return redirect('show_prod')
+        except: 
+            messages.error("Wrong login credentials. Try again.")
+            return redirect('login_user')
+    else: 
+        return render(request, 'admin/register.html')
 
 
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-
-        user = authenticate(request, username=username, password=password)
-        if user:
+        try: 
+            check_username = User.objects.get(username=username)
+        except:
+            messages.error(request, "Username doesn't exist. try again")
+            return redirect('login_user')
+        try:
+            user = authenticate(request, username=username, password=password)
+        except AssertionError as e: 
+            messages.error(request, e)
+            return redirect('login_user')
+        try:
             login(request, user)
+            messages.success(request, "Welcome!")
             return redirect('show_prod')
-        else: 
-            messages.error(request, 'Username does not exist!')
+        except:
+            messages.error(request, "Could not login. please try again")
             return redirect('login_user')
     else: 
         return render(request, 'login.html')
