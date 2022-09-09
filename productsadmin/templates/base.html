@@ -47,18 +47,48 @@
 
         {% for product in products %}
             
-            <div class="centered col-sm-12 col-md-6 col-lg-4">
-                <div class="card card-flex" >
+            <div class="centered col-sm-12 col-md-6 col-lg-4 my-3">
+                <div class="card card-style card-flex">
                     <img class="card-img-top" src="{% static  'img/'' %}{{product.pic}}" alt="Card image cap">
+                    {% if product.sale %}
+                    <div class="card-price card-sale-price">
+                        <p class="sale">{{ product.price }}:-</p>
+                        <p class="sale-price">{{ product.sale_price }}:-</p>
+                    </div>
+                    {% else %}
+                    <div class="card-price">
+                        <p class="price">{{ product.price }}:-</p>
+                    </div>
+                    {% endif %}
                     <div class="card-body">
-                        <h5 class="card-title">{{ product.name }} - {{ product.sale_price }}:-</h5>
+                        <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text"><!--{{ product.desc }}--></p>
-                        <div class="link-div">
-                            <a class="link-btn" href="show/{{ product.id }}">View frame</a>
-                        </div>
+                        <a class="link-btn" data-toggle="modal" data-target="#product_modal{{ product.id }}" href="#">View frame</a>
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="product_modal{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="user_modal" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="modal-title mx-2" id="staticBackdropLabel">{{ product.name }}!</p>
+                        <!--    {% if user.is_superuser %}
+                            <a href="{% url 'add_prod' %}" class="btn btn-primary centered w-20">Add products</a>
+                            <a href="{% url 'show' %}" class="btn btn-primary centered w-20">Products list</a>
+                            {% endif %} -->
+                        <img class="card-img-top card-large" src="{% static  'img/'' %}{{product.pic}}" alt="{{ product.name }}">
+                    </div>
+                    <div class="modal-body">
+                        {{ product.desc }}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary centered" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
         {% endfor %}
         
         </div>

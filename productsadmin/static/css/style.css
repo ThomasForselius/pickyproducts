@@ -1,8 +1,9 @@
-.blockqoute {
-    font-style: italic;
-}
 body {
     font-family: Didot, Serif;
+}
+
+.blockqoute {
+    font-style: italic;
 }
 
 .centered{
@@ -16,17 +17,6 @@ body {
     margin: auto 0px;
     bottom: 15px;
     width: 100%;
-}
-
-.card-flex{
-    border-bottom-right-radius: 40px;
-    height: 300px;
-    width: 250px;
-    box-shadow: 0px 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.card{
-    margin-bottom: 30px;
 }
 
 .nav{
@@ -82,6 +72,9 @@ margin: 20px 20px;
 .link-btn{
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 15px;
     cursor: pointer;
     text-decoration: none;
     color: #000;
@@ -187,46 +180,46 @@ td,th{
     padding: 5px;
 }
 
-  th{
-    text-align: Left;
-    min-height: 30px;
-    vertical-align: baseline;
-  }
+th{
+text-align: Left;
+min-height: 30px;
+vertical-align: baseline;
+}
 
-  tr{
-    border-bottom: 1px solid #000;
-  }
+tr{
+border-bottom: 1px solid #000;
+}
 
-  .noborder{
-    border: none;
-  }
+.noborder{
+border: none;
+}
 
-  .border-bottom{
-    border-bottom: 1px solid #222;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
+.border-bottom{
+border-bottom: 1px solid #222;
+padding: 10px;
+margin-bottom: 10px;
+}
 
-  @media screen and (max-width: 400px) {
-    article {
-      width: 90vw;
-      margin: 0 auto;
-    }
-  }
+@media screen and (max-width: 400px) {
+article {
+    width: 90vw;
+    margin: 0 auto;
+}
+}
   
-  @media screen and (min-width: 400px) {
+@media screen and (min-width: 400px) {
     article {
-      width: 80vw;
-      margin: 0 auto;
+        width: 80vw;
+        margin: 0 auto;
     }
 
     article > input[type='textarea']{
         max-width: 450px;
         min-width: 250px;
     }
-  }
+}
 
-  .user{
+.user{
     z-index: 1031;
     position: absolute;
     display: flex;
@@ -235,4 +228,116 @@ td,th{
     width: 170px;
     right: 0px;
     height: 65px;
+}
+
+.card-img-top{
+    max-height: 250px;
+    max-width: 200px;
+    width: auto;
+    margin: auto;
+    padding-top: 5px;
+    justify-content: center;
   }
+
+.card-large{
+    display: block;
+    background-color: pink;
+    margin: 0 auto; 
+    width: 400px;
+}
+
+
+.card-title{
+    margin-left: 10px;
+}
+
+.card-flex{
+    height: 300px;
+    width: 250px;
+    box-shadow: 0px 0 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: 30px;
+}
+
+.card-body{
+    margin-top: 15px;
+}
+
+.card-style{
+    border-radius: 15px;
+}
+
+.card-price{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    bottom: -17px;
+    right: -10px;
+    border-radius: 50px;
+    border: 1px solid #aaa;
+    height: 70px;
+    width: 70px;
+    padding: 22px 10px;
+}
+
+.card-sale-price{
+    border: 1px solid #990000;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.card-sale-price::before{
+    content: attr(price);
+    z-index: 1;
+    position: inherit;
+    border-radius: inherit;
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(125deg, red, yellow)
+}
+
+.sale{
+    position: absolute;
+    color:rgba(0, 0, 0, 0.5);
+    text-decoration: line-through;
+    height: 5px;
+    font-size: 12px;
+    top: 8px;
+}
+
+.sale-price{
+    position: relative;
+    top: 8px;
+    color:rgb(130, 6, 6)
+}
+
+.price{
+    position: relative;
+    top: 8px;
+}
+
+.modal {
+    min-width: 190px;
+    width: 100vw;
+    left: 0;
+    margin: 0 0;
+    padding: 0 0;
+    box-shadow: 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+.modal-dialog{
+    max-width: 500px;
+}
+
+.modal-title{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: -15px;
+    padding: 10px;
+    min-width: 100px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0 10px rgba(0, 0, 0, 0.4);
+}
