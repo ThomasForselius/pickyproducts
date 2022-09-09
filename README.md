@@ -17,7 +17,7 @@ Django project CMS for CRUD operations regarding PickyFrame
 ## What is PickyProducts?
 
 PickyProducts is a Fullstack project from me, Thomas Forselius; a '22 season student at CodeInstitute front end developer course. 
-The project is a front end page, that has admin/crud capabilities for managing products in a database. 
+The project is fullstack, that has admin/crud capabilities for managing products in a database. 
 
 The idea and goal with this project is to implement it into my upcoming website that is in the works and will be launched later in the year. 
 It will have a webshop that will utilize the same products and database as this project. It's so much more enticing to acutally code a project that will be used in a real world scenario. This keeps the life of the project fresh!
@@ -30,6 +30,9 @@ It will have a webshop that will utilize the same products and database as this 
     - Black text on white background, great contrast and very relatable color combination
     - Soft beige color palette, the go-to-choice for vloggers, bloggers and interior design photographers. "Know your target audience"
     - The green details and accent colors are a good and simple way to create a subtle colorful feel on the page without spoiling the laid back feeling from the beige
+
+### Typography
+
 - The fonts I have chosen are serif, to give a sense of 'classic' and 'elegant'
     - Font 1: Didot
         - This is the main font for the whole page
@@ -38,19 +41,41 @@ It will have a webshop that will utilize the same products and database as this 
         - This is the font for the logo
         - https://fonts.google.com/download?family=DM%20Serif%20Display
 
+### Background-image
+
 - The background I chose for the landing page is a casual but styled living room. The image is blurred to keep the users intrest focused on the logo or product. Otherwise the background can become to distracting and draw attention away from the real point of intrest
 - It just as well on large devices as well as mobile devs.
 - THe design is done from 'Mobile first' mindset, but adapted to work on larger screens as well thanks to resposive design media queries
 
+### Navigation
+
+The navigation is a simple nav-bar at the top of the page with only 2 clickable links: 
+- Logo: clicking here returns the user to the default page
+- At the top right: 
+    - If you are not yet signed in, you can sign up or sign in. 
+        - Clicking this shows a popup where you can enter login credentials or click to go to the register page
+    - If you are signed in, you will have a 'profile' icon and your name next to it.
+        - Clicking this shows a popup with your username at the top
+            - If you are logged in as admin, you get three links: 
+                - Add products - redirects you to a page where you can add new products
+                - Show products list - redirects you to a page that handles crud operations of the products on the page
+                - Logout
+            - If you are logged in as a regular user, you only get one link at the moment: 
+                - (coming feature) Profile page
+                - Logout
+
 ## Features and pages
 
-- The basic feature of the webpage is a user friendly product management system where you can register as an admin or a regular user. 
+- Landing page: the default page you will view products at
+    - (at the moment there is only view functionality for the products, unless you are admin/staff)
+    - When scrolling through products you can click 'view frame' to open a popup with more informaiton regarding the chosen product
+- Register page: if you don't have an account, this is were you register as a user
+- Login page: this is where you login when you have registered
+
+- The basic feature of the webpage is a user friendly product management system where you can register as a user. 
+- Admins/Staff are added either through the django-admin terminal commands or via the integrated web-ui @ 'webpage'/admin
     - As an admin, you want to be able to create, read, update and delete products, by registering at the first page
-    - As a regular user, you want to be able to read products, by registering as a user at the first page
-
-## UI & UX
-
-
+    - As a regular user, you want to be able to read products, by registering at the first page
 
 ## Install Django: 
 
