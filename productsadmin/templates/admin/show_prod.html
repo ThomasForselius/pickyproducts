@@ -2,6 +2,13 @@
 {% block content %}
 
 <article class="article">
+    {% if messages %}
+            {% for message in messages%}
+                <header class="alert alert-warning" role="alert">
+                    {{ message }}
+                </header>    
+            {% endfor %}
+        {% endif %}
     <table>
         <tr>
             <th>Name: </th>
