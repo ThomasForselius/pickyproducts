@@ -137,8 +137,10 @@
               <h5 class="modal-title centered" id="staticBackdropLabel">Welcome <p class="mx-2">{{ user }}!</p></h5>
             </div>
             <div class="modal-body">
+                {% if user.is_superuser %}
                     <a href="{% url 'add_prod' %}" class="btn btn-primary centered w-20">Add products</a>
                     <a href="{% url 'show' %}" class="btn btn-primary centered w-20">Products list</a>
+                {% endif %}
                     <a href="{% url 'logout_user' %}" class="btn btn-secondary centered w-30">Logout</a>
             </div>
             <div class="modal-footer">

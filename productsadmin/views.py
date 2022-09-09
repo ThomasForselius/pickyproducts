@@ -23,7 +23,7 @@ def register_user(request):
             return render(request, 'admin/register.html')      
         except User.DoesNotExist:
             pass
-        newuser = User.objects.create_user(name,email, password)
+        newuser = User.objects.create_user(name,email, password, group=users)
         newuser.save()
         user_check = authenticate(request, username=name,password=password)
         try:
@@ -59,6 +59,23 @@ def login_user(request):
             return redirect('login_user')
     else: 
         return render(request, 'login.html')
+
+
+def is_admin(user):
+    user = user.groups.filter(name="Admin").exists()
+    print("ADMIN")
+    print("ADMIN")
+    print("ADMIN")
+    print("ADMIN")
+    print("ADMIN")
+    print("ADMIN")
+    return user
+
+
+def is_member(user):
+    user_group = user.groups.filter(groups="users").exists()
+    print(user_group)
+    return user_group
 
 
 def show_prod(request):
