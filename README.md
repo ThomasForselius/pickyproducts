@@ -22,6 +22,26 @@ The project is a front end page, that has admin/crud capabilities for managing p
 The idea and goal with this project is to implement it into my upcoming website that is in the works and will be launched later in the year. 
 It will have a webshop that will utilize the same products and database as this project. It's so much more enticing to acutally code a project that will be used in a real world scenario. This keeps the life of the project fresh!
 
+## UI & UX
+
+- On of the most important features of webpages today is being responsive, since the largest amount of people view webpages on their mobile devices. Responsive websites are a must, if your goal is the keep the interest of the visitor
+- My idea when creating this page is that I wanted to simple and esthetically pleasing design without too much flashy functions and design elements that draw attention away from the product itself. 
+- Colors used are simple - I wanted to keep it simple with a high contrast for maximum accessibility; 
+    - Black text on white background, great contrast and very relatable color combination
+    - Soft beige color palette, the go-to-choice for vloggers, bloggers and interior design photographers. "Know your target audience"
+    - The green details and accent colors are a good and simple way to create a subtle colorful feel on the page without spoiling the laid back feeling from the beige
+- The fonts I have chosen are serif, to give a sense of 'classic' and 'elegant'
+    - Font 1: Didot
+        - This is the main font for the whole page
+        - Link: https://www.cufonfonts.com/download/font/single/97226/didot-2
+    - Font 2: DM Serif Display
+        - This is the font for the logo
+        - https://fonts.google.com/download?family=DM%20Serif%20Display
+
+- The background I chose for the landing page is a casual but styled living room. The image is blurred to keep the users intrest focused on the logo or product. Otherwise the background can become to distracting and draw attention away from the real point of intrest
+- It just as well on large devices as well as mobile devs.
+- THe design is done from 'Mobile first' mindset, but adapted to work on larger screens as well thanks to resposive design media queries
+
 ## Features and pages
 
 - The basic feature of the webpage is a user friendly product management system where you can register as an admin or a regular user. 
