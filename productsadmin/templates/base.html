@@ -20,17 +20,27 @@
             {% if user.is_authenticated %}
             <a class="nav-link icon active mx-3" data-toggle="modal" data-target="#user_modal"><i class="fa-regular fa-user mx-2"></i> {{ user }}</a>
             {% else %}
-            <a href="/" class="nav-link me-2" data-toggle="modal" data-target="#staticBackdrop">Sign In / Sign Up</a>
+            <a href="/" class="nav-link" data-toggle="modal" data-target="#staticBackdrop">Sign In / Sign Up</a>
             {% endif %}
         </div>
         <div class="centered">
-            <a href="/" class="navbar-brand d-inline d-sm-inline d-md-inline d-lg-inline centered mx-4">PickyFrame</a>
+            <a href="/" class="navbar-brand d-inline d-sm-inline d-md-inline d-lg-inline mx-4">PickyFrame</a>
         </div>
-    </nav>    
+    </nav>
     <article class="container-fluid callout-container">
         <div class="row">
             <div class="col-12">
                 <section class="callout text-center">
+                    {% if messages %}
+                        <article class="centered alert alert-warning alert-dismissible show fade" role="alert">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                        </article>
+                    {% endif %}
                     <img class="centered my-5" src="{% static 'img/logo_sv_sm.png' %}" height="100">
                 
                     <p>The <strong>brand new way</strong> to make your posters stand out!<br>
@@ -53,7 +63,7 @@
                     {% if product.sale %}
                     <div class="card-price card-sale-price">
                         <p class="sale">{{ product.price }}:-</p>
-                        <p class="sale-price">{{ product.sale_price }}:-</p>
+                        <p class="sale-price">{{ product.sale_price }}</p>
                     </div>
                     {% else %}
                     <div class="card-price">
@@ -71,7 +81,7 @@
             <div class="modal fade" id="product_modal{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="user_modal" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header centered">
                         <p class="modal-title mx-2" id="staticBackdropLabel">{{ product.name }}!</p>
                         <!--    {% if user.is_superuser %}
                             <a href="{% url 'add_prod' %}" class="btn btn-primary centered w-20">Add products</a>
@@ -163,8 +173,8 @@
     <div class="modal fade" id="user_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="user_modal" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title centered" id="staticBackdropLabel">Welcome <p class="mx-2">{{ user }}!</p></h5>
+            <div class="modal-header centered">
+              <h5 class="modal-title" id="staticBackdropLabel">Welcome {{ user }}!</h5>
             </div>
             <div class="modal-body">
                 {% if user.is_superuser %}

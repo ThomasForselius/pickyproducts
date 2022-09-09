@@ -6,6 +6,10 @@ body {
     font-style: italic;
 }
 
+section{
+    display: block;
+}
+
 .centered{
     margin: auto auto;
     display: flex;
@@ -21,6 +25,8 @@ body {
 
 .nav{
     background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .nav-link{
@@ -54,9 +60,9 @@ body {
 }
 
 .features-container{
-display: flex;
-justify-content: center;
-margin: 20px 20px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 20px;
 }
 
 .link-div{
@@ -101,6 +107,14 @@ margin: 20px 20px;
 .form-group > input {
     margin: 10px 0;
     text-align: center;
+}
+
+.close{
+    font-size: 30px;
+    color:#222;
+    position: relative;
+    background-color: transparent;
+    border: none;
 }
 
 .form-group > label{
@@ -200,11 +214,24 @@ padding: 10px;
 margin-bottom: 10px;
 }
 
-@media screen and (max-width: 400px) {
-article {
-    width: 90vw;
-    margin: 0 auto;
-}
+@media screen and (max-width: 450px) {
+    article {
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    .navbar-brand{
+        position: relative;
+        display: flex;
+        justify-content: left;
+        width: 100vw;
+    }
+
+    .card {
+        min-width: 250px;
+        margin: 0px auto;
+    }
+
 }
   
 @media screen and (min-width: 400px) {
@@ -230,19 +257,22 @@ article {
     height: 65px;
 }
 
+.card{
+    margin: 0px 20px;
+}
+
 .card-img-top{
     max-height: 250px;
     max-width: 200px;
     width: auto;
-    margin: auto;
-    padding-top: 5px;
+    margin: 10px auto 0 auto;
+    border: none;
     justify-content: center;
   }
 
 .card-large{
     display: block;
-    background-color: pink;
-    margin: 0 auto; 
+    margin: 40px auto; 
     width: 400px;
 }
 
@@ -282,18 +312,8 @@ article {
 }
 
 .card-sale-price{
-    border: 1px solid #990000;
+    border: none;
     z-index: 2;
-    background-color: #fff;
-}
-
-.card-sale-price::before{
-    content: attr(price);
-    z-index: 1;
-    position: inherit;
-    border-radius: inherit;
-    width: inherit;
-    height: inherit;
     background: linear-gradient(125deg, red, yellow)
 }
 
@@ -309,7 +329,8 @@ article {
 .sale-price{
     position: relative;
     top: 8px;
-    color:rgb(130, 6, 6)
+    font-size: 18px;
+    color:#000;
 }
 
 .price{
@@ -318,7 +339,7 @@ article {
 }
 
 .modal {
-    min-width: 190px;
+    min-width: 250px;
     width: 100vw;
     left: 0;
     margin: 0 0;
@@ -326,8 +347,9 @@ article {
     box-shadow: 0px 20px rgba(0, 0, 0, 0.7);
 }
 
-.modal-dialog{
+.modal-dialog, .modal-content{
     max-width: 500px;
+    min-width: 230px;
 }
 
 .modal-title{
@@ -335,9 +357,24 @@ article {
     display: flex;
     justify-content: center;
     top: -15px;
-    padding: 10px;
-    min-width: 100px;
+    padding: 3px 15px;
+    font-size: 1.4rem;
+    min-width: 140px;
     border-radius: 15px;
     background-color: #fff;
     box-shadow: 0px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.modal-body{
+    margin: 0px 10px;
+}
+
+.alert-warning{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20px;
+    height: 25px;
+    padding: 5px;
+    width: auto;
 }

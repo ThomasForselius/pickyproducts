@@ -52,30 +52,12 @@ def login_user(request):
             return redirect('login_user')
         try:
             login(request, user)
-            messages.success(request, "Welcome!")
             return redirect('show_prod')
         except:
             messages.error(request, "Could not login. please try again")
             return redirect('login_user')
     else: 
         return render(request, 'login.html')
-
-
-def is_admin(user):
-    user = user.groups.filter(name="Admin").exists()
-    print("ADMIN")
-    print("ADMIN")
-    print("ADMIN")
-    print("ADMIN")
-    print("ADMIN")
-    print("ADMIN")
-    return user
-
-
-def is_member(user):
-    user_group = user.groups.filter(groups="users").exists()
-    print(user_group)
-    return user_group
 
 
 def show_prod(request):
@@ -87,12 +69,15 @@ def show_prod(request):
 
 
 def show(request):
-    products = Product.objects.all()
-    context = {
-        'products' : products
-    }
-    return render(request, 'admin/show_prod.html', context)
-
+    if request.user.is_superuser:
+        products = Product.objects.all()
+        context = {
+            'products' : products
+        }
+        return render(request, 'admin/show_prod.html', context)
+    else: 
+        messages.error(request, "You are not authorized for this")
+        return redirect('show_prod')
 
 def add_prod(request):
     if request.method == "POST":
@@ -108,31 +93,41 @@ def add_prod(request):
 
 
 def edit_prod(request, prod_id):
-    prod = get_object_or_404(Product, id=prod_id)
-    if request.method == "POST":
-        name = request.POST.get("name")
-        price = request.POST.get("price")
-        desc = request.POST.get("desc")
-        sale = 'sale' in request.POST
-        sale_price = request.POST.get("sale_price")
-        Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
-        return redirect('show')
-    context = {
-        'id' : prod_id,
-        'name' : prod.name,
-        'price' : prod.price,
-        'desc' : prod.desc,
-        'sale' : prod.sale,
-        'sale_price' : prod.sale_price
-    }
-    return render(request, 'admin/edit_prod.html', context)
-
+    if request.user.is_superuser:
+        try:
+            prod = get_object_or_404(Product, id=prod_id)
+        except:
+            messages.error(request, f"Product ID {prod_id} doesn't exist.")
+            return redirect('show')
+        if request.method == "POST":
+            name = request.POST.get("name")
+            price = request.POST.get("price")
+            desc = request.POST.get("desc")
+            sale = 'sale' in request.POST
+            sale_price = request.POST.get("sale_price")
+            Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+            return redirect('show')
+        context = {
+            'id' : prod_id,
+            'name' : prod.name,
+            'price' : prod.price,
+            'desc' : prod.desc,
+            'sale' : prod.sale,
+            'sale_price' : prod.sale_price
+        }
+        return render(request, 'admin/edit_prod.html', context)
+    else:
+        messages.error(request, "You are not authorized for that page.")
+        return redirect('show_prod')
 
 def remove_prod(request, prod_id):
-    prod = get_object_or_404(Product, id=prod_id)
-    Product.objects.filter(pk=prod_id).delete()
-    return redirect('show')
-    
+    if request.user.is_superuser:
+        prod = get_object_or_404(Product, id=prod_id)
+        Product.objects.filter(pk=prod_id).delete()
+        return redirect('show')
+    else:
+        messages.error(request, "You are not authorized for that page.")
+        return redirect('show_prod')
 
 def toggle_prod(request, prod_id):
     prod = get_object_or_404(Product, id=prod_id)
@@ -140,3 +135,7 @@ def toggle_prod(request, prod_id):
     prod.save()
     return redirect('show')
     
+
+def error_404(request, exception):
+    messages.error(request, "That page doesn't exist.")
+    return redirect('show_prod')
