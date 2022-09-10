@@ -1,1 +1,1 @@
-web: gunicorn productsadmin.wsgi:application
+web: gunicorn pickyproducts.wsgi:application
