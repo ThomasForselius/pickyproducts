@@ -46,20 +46,25 @@ It will have a webshop that will utilize the same products and database as this 
 - The background I chose for the landing page is a casual but styled living room. The image is blurred to keep the users intrest focused on the logo or product. Otherwise the background can become to distracting and draw attention away from the real point of intrest
 - It just as well on large devices as well as mobile devs.
 - THe design is done from 'Mobile first' mindset, but adapted to work on larger screens as well thanks to resposive design media queries
+- The page i use for free images is Freepik, https://www.freepik.com/
 
 ### Navigation
 
 The navigation is a simple nav-bar at the top of the page with only 2 clickable links: 
+![Nav](productsadmin/static/img/readme_img/nav.png)
 - Logo: clicking here returns the user to the default page
 - At the top right: 
     - If you are not yet signed in, you can sign up or sign in. 
         - Clicking this shows a popup where you can enter login credentials or click to go to the register page
+        ![Nav modal](productsadmin/static/img/readme_img/login_modal.png)
     - If you are signed in, you will have a 'profile' icon and your name next to it.
+        ![Logged in modal](productsadmin/static/img/readme_img/logged_in_nav.png)
         - Clicking this shows a popup with your username at the top
             - If you are logged in as admin, you get three links: 
                 - Add products - redirects you to a page where you can add new products
                 - Show products list - redirects you to a page that handles crud operations of the products on the page
                 - Logout
+                ![Admin modal](productsadmin/static/img/readme_img/admin_modal.png)
             - If you are logged in as a regular user, you only get one link at the moment: 
                 - (coming feature) Profile page
                 - Logout
@@ -76,6 +81,18 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 - Admins/Staff are added either through the django-admin terminal commands or via the integrated web-ui @ 'webpage'/admin
     - As an admin, you want to be able to create, read, update and delete products, by registering at the first page
     - As a regular user, you want to be able to read products, by registering at the first page
+
+- There are 4 main sections to the landing page: 
+    - Hero section
+        - This is the first thing the visitor sees when entering the webpage. Here there is a cta(call-to-action) button where you get a modal popup with a nice product view to quickly get a good idea of what the page is about.
+        - There is a short text description as well, with a catchy slogan
+    - Products
+        - This section displays all the products that we have to offer on the webpage, each on a separate 'card'
+    ![Products](productsadmin/static/img/readme_img/products.png)
+    - Features
+    - Qoutes from users
+
+
 
 ## Install Django: 
 
