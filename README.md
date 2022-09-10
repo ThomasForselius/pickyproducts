@@ -352,6 +352,12 @@ The process of setting up my project on Heroku is the following:
     'default': dj_database_url.parse('*postgres copied link goes here')
     }
     ```
+- In the terminal, write the following: 
+    ```
+    python3 manage.py migrate
+    ```
+    *This will create the database tables on the Heroku database*
+
 - The next step is to create a file called *requirements.txt*. This file will let Heroku know what dependencies are need for the app to run. Create this file by running the following command in the terminal:
     ```
     pip3 freeze --local > requirments.txt
