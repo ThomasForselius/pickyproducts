@@ -68,6 +68,8 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
             - If you are logged in as a regular user, you only get one link at the moment: 
                 - (coming feature) Profile page
                 - Logout
+- The only (at the moment) clickable component on the page is each product, where when you click 'View product' a modal popup will appear showing the selected products information
+![Product modal](productsadmin/static/img/readme_img/product_modal.png)
 
 ## Features and pages
 
@@ -142,7 +144,7 @@ These are the installing and deployment steps for starting and running a Django 
             admin.site.register(Product)
             ```
 
-## Showing items from db: 
+### Showing items from db: 
 
 - In *views.py* , add a new class using the following lines:
     -   ```python
@@ -182,7 +184,7 @@ These are the installing and deployment steps for starting and running a Django 
         ```
     - Now in this for-loop you can use *product.name, product.id, product.price and so on to display eache key value*
 
-## Adding items to db:
+### Adding items to db:
 
 To add items to the database you need to add a frontend page by following these steps:
 
@@ -211,7 +213,7 @@ To add items to the database you need to add a frontend page by following these 
 - Now when you click sumbit, the field values will transfer to the *views.py* file and be inserted into the db
 - You will then be redirected back to *show_prod.html* where the newly added product should appear
 
-## Updating items in db
+### Updating items in db
 
 - In *views.py*, add the following information behind *render, redirect*: 
     -   ```python
@@ -288,7 +290,7 @@ To add items to the database you need to add a frontend page by following these 
 - Now when you click sumbit, the field values will transfer to the views.py file and be inserted into the db. 
 - You will then be redirected back to *show_prod.html* where the newly added product should appear
 
-## Deleting item from db
+### Deleting item from db
 
 - In *views.py*, add the following to create a new function called *remove_prod*: 
     ```python
@@ -314,3 +316,21 @@ To add items to the database you need to add a frontend page by following these 
     ```python
         remove_prod
     ```
+
+## Testing
+
+## Deployment
+
+- Heroku is a free webpage where you can host your back end web projects, and connect them to GitHub to make use of front end functionality.
+
+The process of setting up my project on Heroku is the following:
+
+- Sign up / Log in
+- Top right corner -> Create new app
+- Choose APP name and region and click create app
+- Under Settings -> reveal Config Vars and add the following(these keys and values will be set in env.py to run locally, but env.py will be added to .gitignore so it won't be uploaded to the repo and be public):
+- IP - value: 0.0.0.0
+- PORT - value: 5000
+- SECRET_KEY: **** (secret, that's why it's called a secret key)
+- Under Deploy -> scroll down to GitHub and connect to your project
+- Under Deploy -> scroll down to Manual Deploy and click Deploy Branch
