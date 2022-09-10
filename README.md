@@ -341,7 +341,17 @@ The process of setting up my project on Heroku is the following:
 - Sign up / Log in to your Heroku account
 - Top right corner -> Create new app
 - Choose app name and region and click create app
-- Under 'Resources' -> Add-ons: type 'postgres'. Then click Heroku Postgres
+- Resources -> Add-ons: type 'postgres'. Then click Heroku Postgres
+- Settings -> Config Vars -> Reveal Config Vars -> Copy the DATABASE_URL value ('postgres://....')
+- Open your project folder, and in there open the file *settings.py*
+    - Under the line that has *import os*, insert this: *import dj_database_url*
+    - Scroll down to the section about DATABASES and comment out the default settings.
+    - Now add the following code, and paste your link you copied from Heroku: 
+    ```python
+    DATABASES = {
+    'default': dj_database_url.parse('*postgres copied link goes here')
+    }
+    ```
 - The next step is to create a file called *requirements.txt*. This file will let Heroku know what dependencies are need for the app to run. Create this file by running the following command in the terminal:
     ```
     pip3 freeze --local > requirments.txt
