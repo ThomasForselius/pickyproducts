@@ -338,7 +338,7 @@ The process of setting up my project on Heroku is the following:
     ```
     pip3 install dj_database_url
     ```
-- Sign up / Log in
+- Sign up / Log in to your Heroku account
 - Top right corner -> Create new app
 - Choose app name and region and click create app
 - Under 'Resources' -> Add-ons: type 'postgres'. Then click Heroku Postgres
