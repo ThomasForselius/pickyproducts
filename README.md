@@ -362,5 +362,10 @@ The process of setting up my project on Heroku is the following:
     ```
     pip3 freeze --local > requirments.txt
     ```
+- Now you must create a file called *Procfile*. 
+    - In this file you have to write the following code: 
+    ```
+    web: gunicorn *name of your application*.wsgi:application
+    ```
 - Under Deploy -> scroll down to GitHub and connect to your project
 - Under Deploy -> scroll down to Manual Deploy and click Deploy Branch
