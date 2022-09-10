@@ -321,16 +321,30 @@ To add items to the database you need to add a frontend page by following these 
 
 ## Deployment
 
-- Heroku is a free webpage where you can host your back end web projects, and connect them to GitHub to make use of front end functionality.
+- Heroku is a free (until Nov 28'th) webpage where you can host your back end web projects, and connect them to GitHub to make use of front end functionality.
 
 The process of setting up my project on Heroku is the following:
 
+- To be able to connect to our Postrgres database on Heroku, we need to install a library called: Psycopg2. This will allow the database to be stored in a permanent way, instead of a file in the project that may be deleted every time the heroku app shuts down.
+    - To install this package, type the following in your VSCode(or equivalent) terminal:
+    ```
+    pip3 install psycopg2-binary
+    ```
+    -  Another library we need is called Gunicorn, which replaces the local server with the Heroku server wonce deployed. To install this, enter the following in your VSCode(or equivalent) terminal: 
+    ```
+    pip3 install gunicorn
+    ```
+    - The next package to install is called *dj_database_url*. This makes it possible to get the url for the database that Heroku created, so we can connect to it. Install by running the following command: 
+    ```
+    pip3 install dj_database_url
+    ```
 - Sign up / Log in
 - Top right corner -> Create new app
-- Choose APP name and region and click create app
-- Under Settings -> reveal Config Vars and add the following(these keys and values will be set in env.py to run locally, but env.py will be added to .gitignore so it won't be uploaded to the repo and be public):
-- IP - value: 0.0.0.0
-- PORT - value: 5000
-- SECRET_KEY: **** (secret, that's why it's called a secret key)
+- Choose app name and region and click create app
+- Under 'Resources' -> Add-ons: type 'postgres'. Then click Heroku Postgres
+- The next step is to create a file called *requirements.txt*. This file will let Heroku know what dependencies are need for the app to run. Create this file by running the following command in the terminal:
+    ```
+    pip3 freeze --local > requirments.txt
+    ```
 - Under Deploy -> scroll down to GitHub and connect to your project
 - Under Deploy -> scroll down to Manual Deploy and click Deploy Branch
