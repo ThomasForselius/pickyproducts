@@ -367,5 +367,8 @@ The process of setting up my project on Heroku is the following:
     ```
     web: gunicorn *name of your application*.wsgi:application
     ```
+*Now add and commmit these changes to github and then move to the next step*
+
+Now go back to the Heroku webpage and connect to github: 
 - Under Deploy -> scroll down to GitHub and connect to your project
 - Under Deploy -> scroll down to Manual Deploy and click Deploy Branch
