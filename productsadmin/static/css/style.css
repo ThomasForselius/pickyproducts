@@ -158,6 +158,7 @@ label, .submit, article > input{
     display: block;
     margin: 0 auto;
     text-align: center;
+    width: 300px;
 }
 
 input[type='checkbox']{
@@ -388,4 +389,18 @@ margin-bottom: 10px;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #ccc;
+}
+
+.icon_add{
+    width: 50px;
+    height: 50px;
+}
+
+.add{
+    border: none;
+    color: --bs;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
 }
