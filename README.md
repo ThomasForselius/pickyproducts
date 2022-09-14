@@ -344,7 +344,7 @@ To add items to the database you need to add a frontend page by following these 
     I chose to do this because of time constraint, and the project is so small, that I could not justify spending that much time on using automated testing for such simple features.
 
 - Links testing: 
-    - The link redirects to the correct page
+    - All links redirect to the correct page
     - Leaves no error messages in console
     - Leaves no error messages on page
     - If the user clicked logout, the page will redirect to landing page and the auth session is terminated
@@ -355,6 +355,22 @@ To add items to the database you need to add a frontend page by following these 
 - Unauthorised access
     - Trying to access pages that require the correct authorisation without logging in / without proper authorisation redirects to landing page with a message that you are not authorised to view that page
     ![Unauthorised access](productsadmin/static/img/readme_img/unauth.png)
+
+- Admin functions
+    - Remove product only removes the selected product and nothing else. 
+    - Editing and updating a product only updates that specific product and nothing else, using '.filter(pk=prod_id)' 
+    - Toggling sale price only toggles that product
+        - Original price is striked out
+        - Sale price is unstriked and displayed in dark red text
+        - On the landing page > Products section, the product cards display a red-to-orange fade instead of a white background to display
+    - Clicking the add product icon on the products list page
+        - Redirects to a page with a form to fill out with product details
+        - Submitting the form only submits one item
+        - The fields are filled out with the correct type of information
+        - Viewing the item in the products list 
+        - Viewing the item in the products section of the landing page
+
+- Clicking the 'view item' button on products page displays a modal popup with the correct information
 
 - Register form
     - Trying to register withiout filling out the form is not possible
