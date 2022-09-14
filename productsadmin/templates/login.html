@@ -6,11 +6,11 @@
             <form method="POST">
                 {% csrf_token %}    
                 {% if messages %}
-                <div class="centered alert alert-warning alert-dismissible show" role="alert">
                     {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible centered alert show" role="alert" >
                         {{ message }}
+                        </div>
                     {% endfor %}
-                </div>
                 {% endif %}
                 <div class="form-group">
                     <label for="username" class="form-group">Username/Name</label>

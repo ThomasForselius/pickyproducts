@@ -113,9 +113,10 @@ section{
 }
 
 .close{
+    position: absolute;
+    right: 10px;
     font-size: 30px;
-    color:#222;
-    position: relative;
+    margin: auto;
     background-color: transparent;
     border: none;
 }
@@ -213,9 +214,19 @@ border: none;
 }
 
 .border-bottom{
-border-bottom: 1px solid #222;
-padding: 10px;
-margin-bottom: 10px;
+    border-bottom: 1px solid #222;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 50vw;
+}
+
+.alert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+    min-width: 250px;
+    padding-right: 0px;
 }
 
 @media screen and (max-width: 450px) {
@@ -374,16 +385,6 @@ margin-bottom: 10px;
 
 .modal-body{
     margin: 0px 10px;
-}
-
-.alert-warning{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 20px;
-    height: 25px;
-    padding: 5px;
-    width: auto;
 }
 
 .features-container{

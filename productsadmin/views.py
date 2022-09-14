@@ -10,6 +10,7 @@ from .models import Product
 
 def logout_user(request):
     logout(request)
+    messages.success(request, "You logged out!")
     return redirect('show_prod')
 
 def register_user(request):
@@ -62,6 +63,7 @@ def update_profile(request):
         messages.error(request, "You are not authorised for that page.")
         return redirect("show_prod")
 
+
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -78,9 +80,11 @@ def login_user(request):
             return redirect('login_user')
         try:
             login(request, user)
+            messages.success(request, f"You are logged in as {username}")
             return redirect('show_prod')
-        except:
-            messages.error(request, "Could not login. please try again")
+        except ValueError as e:
+            #messages.error(request, "Could not login man. please try again")
+            messages.error(e)
             return redirect('login_user')
     else: 
         return render(request, 'login.html')
@@ -102,7 +106,7 @@ def show(request):
         }
         return render(request, 'admin/show_prod.html', context)
     else: 
-        messages.error(request, "You are not authorized for this")
+        messages.warning(request, "You are not authorized for this")
         return redirect('show_prod')
 
 def add_prod(request):
@@ -113,8 +117,8 @@ def add_prod(request):
         sale = 'sale' in request.POST
         sale_price = request.POST.get("sale_price")
         Product.objects.create(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
-        messages.error(request, 'Product added successfully!')
-        return redirect('add_prod')
+        messages.success(request, 'Product added successfully!')
+        return redirect('show')
     return render(request, 'admin/add_prod.html')
 
 
@@ -123,7 +127,7 @@ def edit_prod(request, prod_id):
         try:
             prod = get_object_or_404(Product, id=prod_id)
         except:
-            messages.error(request, f"Product ID {prod_id} doesn't exist.")
+            messages.warning(request, f"Product ID {prod_id} doesn't exist.")
             return redirect('show')
         if request.method == "POST":
             name = request.POST.get("name")
@@ -141,18 +145,20 @@ def edit_prod(request, prod_id):
             'sale' : prod.sale,
             'sale_price' : prod.sale_price
         }
+        messages.success("Product updated successfully")
         return render(request, 'admin/edit_prod.html', context)
     else:
-        messages.error(request, "You are not authorized for that page.")
+        messages.warning(request, "You are not authorized for that page.")
         return redirect('show_prod')
 
 def remove_prod(request, prod_id):
     if request.user.is_superuser:
         prod = get_object_or_404(Product, id=prod_id)
         Product.objects.filter(pk=prod_id).delete()
+        messages.success(request, "You removed the product successfully")
         return redirect('show')
     else:
-        messages.error(request, "You are not authorized for that page.")
+        messages.warning(request, "You are not authorized for that page.")
         return redirect('show_prod')
 
 def toggle_prod(request, prod_id):

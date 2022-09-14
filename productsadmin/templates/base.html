@@ -15,6 +15,7 @@
     
 </head>
 <body>
+    
     <nav class="navbar navbar-dark nav navbar-expand-sm fixed-top">
         <div class="user">
             {% if user.is_authenticated %}
@@ -27,25 +28,21 @@
             <a href="/" class="navbar-brand d-inline d-sm-inline d-md-inline d-lg-inline mx-4">PickyFrame</a>
         </div>
     </nav>
-    <article class="container-fluid callout-container">
+    <article class="container-fluid callout-container p-0">
         <div class="row">
             <div class="col-12">
                 <section class="callout text-center">
-                    {% if messages %}
-                        <article class="centered alert alert-warning alert-dismissible show fade" role="alert">
-                            {% for message in messages %}
+                        {% for message in messages %}
+                            <article class="alert {{ message.tags }} alert-dismissible centered" role="alert" >
                                 {{ message }}
-                            {% endfor %}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="True">&times;</span>
                               </button>
-                        </article>
-                    {% endif %}
+                            </article>
+                        {% endfor %}
                     <img class="centered my-5" src="{% static 'img/logo_sv_sm.png' %}" height="100">
-                
                     <h3>The <strong>brand new way</strong> to make your posters and pictures stand out!</h3>
                     <button class="btn btn-success">Click here for more information</button>
-                    <!-- <h4><s class="d-none d-sm-inline text-secondary">219 sek</s> 199 sek</h4> -->
                 </section>
             </div>
         </div>
