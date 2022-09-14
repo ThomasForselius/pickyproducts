@@ -41,12 +41,19 @@ It will have a webshop that will utilize the same products and database as this 
         - This is the font for the logo
         - https://fonts.google.com/download?family=DM%20Serif%20Display
 
-### Background-image
+### Images
 
 - The background I chose for the landing page is a casual but styled living room. The image is blurred to keep the users intrest focused on the logo or product. Otherwise the background can become to distracting and draw attention away from the real point of intrest
 - It just as well on large devices as well as mobile devs.
 - THe design is done from 'Mobile first' mindset, but adapted to work on larger screens as well thanks to resposive design media queries
 - The page i use for free images is Freepik, https://www.freepik.com/
+
+### Icons
+
+- The plus sign icon under the products list page is downloaded from: 
+    - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
+- The profile icon at the right in the navbard when logged in is downloaded from: 
+
 
 ### Navigation
 
@@ -71,6 +78,9 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 - The only (at the moment) clickable component on the page is each product, where when you click 'View product' a modal popup will appear showing the selected products information
 ![Product modal](productsadmin/static/img/readme_img/product_modal.png)
 
+- Adding products from the product list in admin section: 
+     - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
+
 ## Features and pages
 
 - Landing page: the default page you will view products at
@@ -92,9 +102,16 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
         - This section displays all the products that we have to offer on the webpage, each on a separate 'card'
     ![Products](productsadmin/static/img/readme_img/products.png)
     - Features
+        - This part of the pags will have a list of features of the products that we have to offer. 
     - Qoutes from users
+        - At the bottom of the landin page there is a section where you can read what other users have said about the products. A future feature could be that registered uses can leave ratings and qoutes about the products, and that they are stored in the database. 
+        Then those qoutes are loaded into the qoutes section of the landing page dynimcally, displayed with a carousell. 
 
+### Future features
 
+- Users posting qoutes about the products > qoutes are displayed in carousel at the bottom of the landing page
+- Users posting ratings of the products > shown with stars on each product card
+- News letter that emails registered users with deals and new products
 
 ## Install Django: 
 
@@ -212,6 +229,10 @@ To add items to the database you need to add a frontend page by following these 
 - In the *add_prod.html* page, add your boilerplate html code and form with corresponding input fields to match your product model
 - Now when you click sumbit, the field values will transfer to the *views.py* file and be inserted into the db
 - You will then be redirected back to *show_prod.html* where the newly added product should appear
+
+- Another way to add a product to the database is to go to the products list, when you are logged in as an admin:
+    - Navigate to the products list either by the modal popup at the fron page or in the admin section. 
+    - At the bottom of the page there is a Plus icon
 
 ### Updating items in db
 

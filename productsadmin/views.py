@@ -37,30 +37,30 @@ def register_user(request):
 
 
 def update_profile(request):
-    # if request.method == "POST":
-    #     name = request.POST.get("name")
-    #     email = request.POST.get("email")
-    #     password = request.POST.get("password1")
-    #     user_id = request.POST.get("user_id")
-    #     try: 
-    #         user_id = User.objects.get(pk=user_id)
-    #         update_user = User.objects.filter(pk=user_id).update(name,email, password)
-    #         update_user.save()
-    #     except User.DoesNotExist:
-    #         messages.error(request, "Account with that email doesn't exist. Please try again")
-    #         return render(request, 'admin/register.html')      
-    #         pass
-    #     try:
-    #         user_check = authenticate(request, username=name,password=password)
-    #         login(request, user_check)
-    #         messages.success(request, "You updated your profile information.")
-    #         return redirect('show_prod')
-    #     except: 
-    #         messages.error("Wrong login credentials. Try again.")
-    #         return redirect('login_user')
-    # else:
-    return render(request, 'admin/profile.html')
-
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            name = request.POST.get("name")
+            email = request.POST.get("email")
+            password = request.POST.get("password1")
+            user_id = request.POST.get("user_id")
+            try: 
+                update_user = User.objects.filter(pk=user_id).update(first_name=name,email=email,password=password)
+            except User.DoesNotExist:
+                messages.error(request, "Account with that email doesn't exist. Please try again")
+                return render(request, 'admin/register.html')      
+            # try:
+            #     user_check = authenticate(request, username=name,password=password)
+            #     login(request, user_check)
+            #     messages.success(request, "You updated your profile information.")
+            #     return redirect('show_prod')
+            # except: 
+            #     messages.error("Wrong login credentials. Try again.")
+            #     return redirect('login_user')
+        else:
+            return render(request, 'admin/profile.html')
+    else:
+        messages.error(request, "You are not authorised for that page.")
+        return redirect("show_prod")
 
 def login_user(request):
     if request.method == "POST":

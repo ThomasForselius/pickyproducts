@@ -1,4 +1,5 @@
 {% extends "admin/admin.html" %}
+{% load static %}
 {% block content %}
 
 <article class="article">
@@ -25,11 +26,11 @@
             <td style="80px; text-align: center;">
                 {% if product.sale == False %}
                 <p style="color: #000; margin: 0;">{{ product.price }}</p>
-                        <strike class="mute">{{ product.sale_price }}</strike>
+                    <strike class="mute">{{ product.sale_price }}</strike>
                 {% endif %}
                 {% if product.sale == True %}
-                <strike class="mute">{{ product.price }}</strike>
-                        <p style="color: darkred; margin: 0;">{{ product.sale_price }}</p>
+                    <strike class="mute">{{ product.price }}</strike>
+                    <p style="color: darkred; margin: 0;">{{ product.sale_price }}</p>
                 {% endif %}
             </td>
             <td style="text-align: center;"><a href="/toggle/{{ product.id }}">
@@ -57,7 +58,7 @@
         {% endfor %}
             <tr class="noborder">
                 <td colspan="6">
-                    <button class="btn link-btn centered my-2"><a href="/add"><i class="fa-solid fa-plus"></i></a></button>
+                    <button class="btn link-btn centered my-2 add"><a href="/add"><!-- <i class="fa-solid fa-plus"></i> --><img class="icon_add" src="{% static  'img/' %}plus.png"></a></button>
                 </td>
             </tr>
     </table>

@@ -46,7 +46,7 @@
             <h5 class="modal-title centered" id="staticBackdropLabel">Welcome: <u class="mx-2">{{ user }}</u></h5>
           </div>
           <div class="modal-body">
-                  <a href="/profile/{{ user.id }}" class="btn btn-secondary centered m-2">Profile</a>
+                  <a href="{% url 'update_profile' %}" class="btn btn-secondary centered m-2">Profile</a>
                   <a href="{% url 'logout_user' %}" class="btn btn-secondary centered">Logout</a>
           </div>
           <div class="modal-footer">

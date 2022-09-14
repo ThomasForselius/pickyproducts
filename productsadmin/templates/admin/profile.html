@@ -1,11 +1,12 @@
 {% extends 'admin/admin.html' %}
 {% block content %}
 
-<form method="POST" action="{% url 'profile' %}">
+<form method="POST" action="{% url 'update_profile' %}">
     {% csrf_token %}
+    <article class="article med">
         <h3 class="centered border-bottom">Profile page for user: {{ user.username }}</h3>
         <label for="name">Name: </label>
-        <input type="text" value="{{ user.name }}" id="name" name="name" maxlength="30" required aria-label="Name"><br>
+        <input type="text" value="{{ user.first_name }}" id="name" name="name" maxlength="30" required aria-label="Name"><br>
         <label for="email">Email: </label>
         <input type="email" value="{{ user.email }}" id="email" name="email" required aria-label="Email"><br>
         <label for="password1">Password:</label>
@@ -13,7 +14,7 @@
         <label for="password2">Enter password again:</label>
         <input type="password2" id="password2" name="password2" required aria-label="password2"/><br>
         <input type="submit" class="btn btn-secondary centered" value="Save">
-        <input type="number" name="user_id" value="{{ user.user_id }}" hidden>
+        <input type="hidden" name="user_id" value="{{ user.id }}">
     </article>
    </form>
 
