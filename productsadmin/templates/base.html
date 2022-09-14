@@ -178,11 +178,11 @@
             </div>
             <div class="modal-body">
                 {% if user.is_superuser %}
-                    <a href="{% url 'add_prod' %}" class="btn btn-primary centered w-20">Add products</a>
-                    <a href="{% url 'show' %}" class="btn btn-primary centered w-20">Products list</a>
+                    <a href="{% url 'add_prod' %}" class="btn btn-primary centered">Add products</a>
+                    <a href="{% url 'show' %}" class="btn btn-primary centered">Products list</a>
                 {% endif %}
-                    <a href="{% url 'update_profile' %}" class="btn btn-secondary centered m-2">Profile</a>
-                    <a href="{% url 'logout_user' %}" class="btn btn-secondary centered w-30">Logout</a>
+                    <a href="{% url 'update_profile' %}" class="btn btn-primary centered">Profile</a>
+                    <a href="{% url 'logout_user' %}" class="btn btn-secondary centered">Logout</a>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary centered" data-dismiss="modal">Close</button>

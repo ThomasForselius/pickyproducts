@@ -43,7 +43,7 @@ section{
 
 .callout-container{
     height: 100vh;
-    background: url(../img/bg_bedroom_blur.png) no-repeat center center fixed;
+    background: url(../img/bg_livingroom_blur.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -d-background-size: cover;
@@ -103,10 +103,13 @@ section{
     padding: 10px;
 }
 
-.btn-primary,
+.btn-primary, .btn-secondary, 
 .form-group > input {
-    margin: 10px 0;
+    margin: 10px auto;
     text-align: center;
+    width: 200px;
+    display: block;
+    justify-content: center;
 }
 
 .close{
@@ -310,10 +313,11 @@ margin-bottom: 10px;
     height: 70px;
     width: 70px;
     padding: 22px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 .card-sale-price{
-    border: none;
+    border: 1px solid #444;
     z-index: 2;
     background: linear-gradient(125deg, red, yellow)
 }
