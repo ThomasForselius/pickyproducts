@@ -91,13 +91,13 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 
 - The basic feature of the webpage is a user friendly product management system where you can register as a user. 
 - Admins/Staff are added either through the django-admin terminal commands or via the integrated web-ui @ 'webpage'/admin
-    - As an admin, you want to be able to create, read, update and delete products, by registering at the first page
-    - As a regular user, you want to be able to read products, by registering at the first page
+    - As an admin, you can create, read, update and delete products, by using the top right menu when logged in to access the admin section of the products page
 
 - There are 4 main sections to the landing page: 
     - Hero section
-        - This is the first thing the visitor sees when entering the webpage. Here there is a cta(call-to-action) button where you get a modal popup with a nice product view to quickly get a good idea of what the page is about.
-        - There is a short text description as well, with a catchy slogan
+        - This is the first thing the visitor sees when entering the webpage. 
+        - There is a short text description as well, with a catchy slogan, to invoke a positive feeling
+        - Here there is a cta(call-to-action) button where you get a modal popup with a nice product view to quickly get a good idea of what the page is about.
     - Products
         - This section displays all the products that we have to offer on the webpage, each on a separate 'card'
     ![Products](productsadmin/static/img/readme_img/products.png)
@@ -340,6 +340,37 @@ To add items to the database you need to add a frontend page by following these 
 
 ## Testing
 
+- All testing on the page is done manually.
+    I chose to do this because of time constraint, and the project is so small, that I could not justify spending that much time on using automated testing for such simple features.
+
+- Links testing: 
+    - The link redirects to the correct page
+    - Leaves no error messages in console
+    - Leaves no error messages on page
+    - If the user clicked logout, the page will redirect to landing page and the auth session is terminated
+
+- Faulty Adresses / Pages
+    - All pages and addresses have been tested to show a 404 message/page if they don't exist.
+    
+- Unauthorised access
+    - Trying to access pages that require the correct authorisation without logging in / without proper authorisation redirects to landing page with a message that you are not authorised to view that page
+    ![Unauthorised access](productsadmin/static/img/readme_img/unauth.png)
+
+- Register form
+    - Trying to register withiout filling out the form is not possible
+    - Entering an email without proper details
+    - Making sure Password 1 and password 2 are the same (this is done using JQuery by comparing the two values)
+    - If user is registered, they are redirected to landing page with a green sucess message
+
+- Login testing
+    - Entering correct credentials logs the user in and redirects to landing page. 
+    At the right in the navbar the user will see their username in green
+    ![Logged in](productsadmin/static/img/readme_img/admin_modal.png)
+    - If username is incorrect/non existant > They will be redirected back to login page with an error message 
+    ![Username doesn't exist](productsadmin/static/img/readme_img/username_doesnt_exist.png)
+    - If the password doesn't match the username:
+    ![Incorrect credentials](productsadmin/static/img/readme_img/wrong_creds.png)
+
 ## Deployment
 
 - Heroku is a free (until Nov 28'th) webpage where you can host your back end web projects, and connect them to GitHub to make use of front end functionality.
@@ -393,3 +424,6 @@ The process of setting up my project on Heroku is the following:
 Now go back to the Heroku webpage and connect to github: 
 - Under Deploy -> scroll down to GitHub and connect to your project
 - Under Deploy -> scroll down to Manual Deploy and click Deploy Branch
+
+*NOTE*
+- Heroku doesn't allow storing of static files, so you will have to upload them to either your own server or redicet to the github page for the project. 
