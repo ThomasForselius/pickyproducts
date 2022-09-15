@@ -16,6 +16,7 @@ def logout_user(request):
 def register_user(request):
     if request.method == "POST":
         name = request.POST.get("name")
+        username = request.POST.get("username")
         email = request.POST.get("email")
         password = request.POST.get("password1")
         try: 
@@ -24,9 +25,9 @@ def register_user(request):
             return render(request, 'admin/register.html')      
         except User.DoesNotExist:
             pass
-        newuser = User.objects.create_user(name,email, password, group=users)
+        newuser = User.objects.create_user(username,name,email, password)
         newuser.save()
-        user_check = authenticate(request, username=name,password=password)
+        user_check = authenticate(request, username=username,password=password)
         try:
             login(request, user_check)
             return redirect('show_prod')
@@ -46,17 +47,13 @@ def update_profile(request):
             user_id = request.POST.get("user_id")
             try: 
                 update_user = User.objects.filter(pk=user_id).update(first_name=name,email=email,password=password)
-            except User.DoesNotExist:
-                messages.error(request, "Account with that email doesn't exist. Please try again")
-                return render(request, 'admin/register.html')      
-            # try:
-            #     user_check = authenticate(request, username=name,password=password)
-            #     login(request, user_check)
-            #     messages.success(request, "You updated your profile information.")
-            #     return redirect('show_prod')
-            # except: 
-            #     messages.error("Wrong login credentials. Try again.")
-            #     return redirect('login_user')
+                print(password)
+                print(name)
+                print(email)
+            except ValueError as e:
+                messages.error(e)
+                #messages.error(request, "Account with that email doesn't exist. Please try again")
+                return render(request, 'admin/register.html')
         else:
             return render(request, 'admin/profile.html')
     else:
@@ -75,16 +72,11 @@ def login_user(request):
             return redirect('login_user')
         try:
             user = authenticate(request, username=username, password=password)
-        except AssertionError as e: 
-            messages.error(request, e)
-            return redirect('login_user')
-        try:
             login(request, user)
             messages.success(request, f"You are logged in as {username}")
             return redirect('show_prod')
-        except ValueError as e:
-            #messages.error(request, "Could not login man. please try again")
-            messages.error(e)
+        except: 
+            messages.error(request, "Wrong login credentials. Try again")
             return redirect('login_user')
     else: 
         return render(request, 'login.html')

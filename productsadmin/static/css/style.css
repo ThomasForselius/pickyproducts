@@ -131,7 +131,7 @@ section{
 }
 
 .icon {
-    cursor: pointer;
+    cursor: hand;
 }
 
 .block{
@@ -215,8 +215,8 @@ border: none;
 
 .border-bottom{
     border-bottom: 1px solid #222;
-    padding: 10px;
     margin-bottom: 10px;
+    margin: 0 auto;
     width: 50vw;
 }
 
@@ -401,6 +401,14 @@ border: none;
     height: 30px;
     border: none;
     background-color: transparent;
+}
+
+.small_icon{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    fill: #fff;
+    fill: linear-gradient(42deg, rgba(46,255,0,1) 0%, rgb(50, 177, 255) 100%);
 }
 
 .add{
