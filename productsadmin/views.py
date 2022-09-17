@@ -8,10 +8,12 @@ from django.contrib import messages
 from .models import Product
 # Create your views here.
 
+
 def logout_user(request):
     logout(request)
     messages.success(request, "You logged out!")
     return redirect('show_prod')
+
 
 def register_user(request):
     if request.method == "POST":
@@ -19,22 +21,29 @@ def register_user(request):
         username = request.POST.get("username")
         email = request.POST.get("email")
         password = request.POST.get("password1")
-        try: 
+        try:
             check_mail = User.objects.get(email=email)
-            messages.error(request, "Account with that email already exists. Please try again")
-            return render(request, 'admin/register.html')      
+            messages.error(
+                request,
+                "Account with that email already exists. Please try again"
+            )
+            return render(request, 'admin/register.html')
         except User.DoesNotExist:
             pass
-        newuser = User.objects.create_user(username,name,email, password)
+        newuser = User.objects.create_user(username, name, email, password)
         newuser.save()
-        user_check = authenticate(request, username=username,password=password)
+        user_check = authenticate(
+            request,
+            username=username,
+            password=password
+        )
         try:
             login(request, user_check)
             return redirect('show_prod')
-        except: 
+        except:
             messages.error("Wrong login credentials. Try again.")
             return redirect('login_user')
-    else: 
+    else:
         return render(request, 'admin/register.html')
 
 
@@ -44,10 +53,10 @@ def update_profile(request):
             name = request.POST.get("name")
             email = request.POST.get("email")
             user_id = request.POST.get("user_id")
-            try: 
-                update_user = User.objects.filter(pk=user_id).update(first_name=name,email=email)
-                print(name)
-                print(email)
+            try:
+                update_user = User.objects
+                .filter(pk=user_id)
+                .update(first_name=name, email=email)
                 messages.success(request, "Successfully updated profile.")
                 return redirect("show_prod")
             except ValueError as e:
@@ -64,7 +73,7 @@ def login_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
-        try: 
+        try:
             check_username = User.objects.get(username=username)
         except:
             messages.error(request, "Username doesn't exist. try again")
@@ -74,17 +83,17 @@ def login_user(request):
             login(request, user)
             messages.success(request, f"You are logged in as {username}")
             return redirect('show_prod')
-        except: 
+        except:
             messages.error(request, "Wrong login credentials. Try again")
             return redirect('login_user')
-    else: 
+    else:
         return render(request, 'login.html')
 
 
 def show_prod(request):
     products = Product.objects.all()
     context = {
-        'products' : products
+        'products': products
     }
     return render(request, 'base.html', context)
 
@@ -93,12 +102,13 @@ def show(request):
     if request.user.is_superuser:
         products = Product.objects.all()
         context = {
-            'products' : products
+            'products': products
         }
         return render(request, 'admin/show_prod.html', context)
-    else: 
+    else:
         messages.warning(request, "You are not authorized for this")
         return redirect('show_prod')
+
 
 def add_prod(request):
     if request.method == "POST":
@@ -107,7 +117,13 @@ def add_prod(request):
         desc = request.POST.get("desc")
         sale = 'sale' in request.POST
         sale_price = request.POST.get("sale_price")
-        Product.objects.create(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+        Product.objects.create(
+            name=name,
+            price=price,
+            desc=desc,
+            sale=sale,
+            sale_price=sale_price
+            )
         messages.success(request, 'Product added successfully!')
         return redirect('show')
     return render(request, 'admin/add_prod.html')
@@ -126,21 +142,30 @@ def edit_prod(request, prod_id):
             desc = request.POST.get("desc")
             sale = 'sale' in request.POST
             sale_price = request.POST.get("sale_price")
-            Product.objects.filter(pk=prod_id).update(name=name, price=price, desc=desc, sale=sale, sale_price=sale_price)
+            Product.objects
+            .filter(pk=prod_id)
+            .update(
+                name=name,
+                price=price,
+                desc=desc,
+                sale=sale,
+                sale_price=sale_price
+                )
             return redirect('show')
         context = {
-            'id' : prod_id,
-            'name' : prod.name,
-            'price' : prod.price,
-            'desc' : prod.desc,
-            'sale' : prod.sale,
-            'sale_price' : prod.sale_price
+            'id': prod_id,
+            'name': prod.name,
+            'price': prod.price,
+            'desc': prod.desc,
+            'sale': prod.sale,
+            'sale_price': prod.sale_price
         }
         messages.success("Product updated successfully")
         return render(request, 'admin/edit_prod.html', context)
     else:
         messages.warning(request, "You are not authorized for that page.")
         return redirect('show_prod')
+
 
 def remove_prod(request, prod_id):
     if request.user.is_superuser:
@@ -152,12 +177,13 @@ def remove_prod(request, prod_id):
         messages.warning(request, "You are not authorized for that page.")
         return redirect('show_prod')
 
+
 def toggle_prod(request, prod_id):
     prod = get_object_or_404(Product, id=prod_id)
     prod.sale = not prod.sale
     prod.save()
     return redirect('show')
-    
+
 
 def error_404(request, exception):
     messages.error(request, "That page doesn't exist.")

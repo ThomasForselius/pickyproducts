@@ -31,4 +31,6 @@ urlpatterns = [
     path('register_user', views.register_user, name='register_user'),
     path('update_profile', views.update_profile, name='update_profile'),
 ]
+
+
 handler404 = 'productsadmin.views.error_404'
