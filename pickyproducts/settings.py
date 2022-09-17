@@ -32,12 +32,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9*=+e^pg*a75^3wf7b+*4%$_zt*n=fb7_2#&e(y*z$540+w*m#'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-9*=+e^pg*a75^3wf7b+*4%$_zt*n=fb7_2#&e(y*z$540+w*m#')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['pickyproducts.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 #ALLOWED_HOSTS = ['localhost']
 
 # Application definition
@@ -86,16 +86,17 @@ WSGI_APPLICATION = 'pickyproducts.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-#DATABASES = {
-#    'default': dj_database_url.parse('postgres://fkdotpgbkndcaf:acd25588de8499cd0868508b8d33067391f847fb5778afc98c2bf51b4351d83f@ec2-52-48-159-67.eu-west-1.compute.amazonaws.com:5432/danh53u1pe1573')
-#}
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    #'default': dj_database_url.parse('postgres://fkdotpgbkndcaf:acd25588de8499cd0868508b8d33067391f847fb5778afc98c2bf51b4351d83f@ec2-52-48-159-67.eu-west-1.compute.amazonaws.com:5432/danh53u1pe1573')
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
