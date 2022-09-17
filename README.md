@@ -75,6 +75,10 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
             - If you are logged in as a regular user, you only get one link at the moment: 
                 - (coming feature) Profile page
                 - Logout
+    - If you try to login with a faulty/non existing username, you will be prompted with the following message:
+    ![Username doesn't exist](productsadmin/static/img/readme_img/username_doesnt_exist.png)
+    - If you try to login with the wrong password-to-username, you will be prompted with the following message: 
+    ![Could not login](productsadmin/static/img/readme_img/could_not_login.png)
 - The only (at the moment) clickable component on the page is each product, where when you click 'View product' a modal popup will appear showing the selected products information
 ![Product modal](productsadmin/static/img/readme_img/product_modal.png)
 
@@ -87,6 +91,15 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
     - (at the moment there is only view functionality for the products, unless you are admin/staff)
     - When scrolling through products you can click 'view frame' to open a popup with more informaiton regarding the chosen product
 - Register page: if you don't have an account, this is were you register as a user
+    ![Register page](productsadmin/static/img/readme_img/register.png)
+    - To ensure name are stored correctly, there is a javascript running to replace all non letter characters from the input value.
+    If the value of name is shorter than one letter, the input box will turn red
+    ```javascript
+    const name = document.getElementById("name");
+    name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
+    ```
+    - To ensure correct registration details, there is a javascript running to check if password1 and password2 match. As long as they don't match, the register button will be disabled and a small alert will cover it
+    ![Passwords do not match](productsadmin/static/img/readme_img/password_match.png)
 - Login page: this is where you login when you have registered
 
 - The basic feature of the webpage is a user friendly product management system where you can register as a user. 
