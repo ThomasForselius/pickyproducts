@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 
   document.getElementById("name").addEventListener('keyup', (event) => {
-      name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
+    document.getElementById.value = document.getElementById.value.replace(/[^a-öA-Ö]*$/g, "");
       if(name.length < 1){
           name.className = "error";
       }
