@@ -391,11 +391,14 @@ To add items to the database you need to add a frontend page by following these 
 ### Fontawesome
 
 To be able to use Fontawesome icons, you need to visit www.fontawesome.com and register for an account, then you can start to use the free icons available on the homepage. 
-- Step 1 is to add the following to the head of www.base.html (index page):
 This code is accuired from your profile page when logged in. 
+- Go to Profile -> Scroll down to Kits -> Manage Kits -> Create new Kit -> Click the new kit -> Copy kit code 
+- Now add the code to the head of www.base.html (index page):
     ```html
     <script src="https://kit.fontawesome.com/5e9b4b033e.js" crossorigin="anonymous"></script>
     ```
+- To find and use icons, go to www.fontawesome.com and search for icons, then copy the *<>* -tag and paste into your webpage.
+    *Note, you must have an internet connection for the icon to display since it uses a cdn*
 
 ## Testing
 
@@ -445,6 +448,12 @@ This code is accuired from your profile page when logged in.
     ![Username doesn't exist](productsadmin/static/img/readme_img/username_doesnt_exist.png)
     - If the password doesn't match the username > They will be redirected back to login page with an error message
     ![Incorrect credentials](productsadmin/static/img/readme_img/wrong_creds.png)
+
+
+### Pep8 testing python code
+
+The following pages and files have been tested using www.pep8online.com:
+- 
 
 ## Deployment
 
