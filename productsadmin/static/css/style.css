@@ -104,12 +104,23 @@ section{
 }
 
 .btn-primary, .btn-secondary, 
-.form-group > input {
+.form-group > input, form > input {
     margin: 10px auto;
     text-align: center;
     width: 200px;
     display: block;
     justify-content: center;
+}
+
+input{
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: transparent;
+}
+
+input:focus{
+    border: 1px solid #198754;
+    outline: none !important;
 }
 
 .close{
@@ -413,4 +424,26 @@ border: none;
 
 .add{
     border-radius: 50px;
+}
+
+#pass_check{
+    z-index: 2;
+    width: 300px;
+    top: 40px;
+    margin: 0px auto;
+    padding: 0 0;
+    border-radius: 10px;
+    height: 20px;
+    font-size: 10pt;
+}
+
+.error{
+    background-color: #fedddd;
+    border:2px solid rgb(130, 6, 6);
+    outline: none !important;
+}
+
+.pass{
+    border:1px solid #090;
+    outline: none !important;
 }

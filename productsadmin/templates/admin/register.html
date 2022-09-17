@@ -5,13 +5,14 @@
     {% csrf_token %}
     <article class="article med">
         {% if messages %}
-        {% for message in messages%}
-        <div class="alert alert-warning centered" role="alert">
-            {{ message }}
+        <div class="alert alert-warning centered" role="alert" id="alert">
+            {% for message in messages%}
+            <p id="alert"></p>
+                {{ message }}
+            {% endfor %}
         </div>    
-        {% endfor %}
         {% endif %}
-        <h3 class="centered border-bottom">Register new user:</h3>
+        <h3 class="centered border-bottom w-100 p-2">Register new user:</h3>
         <label for="name">Name: </label>
         <input type="text" id="name" name="name" maxlength="30" required/><br>
         <label for="username">Username: </label>
@@ -19,11 +20,13 @@
         <label for="email">Email: </label>
         <input type="email" id="email" name="email" required/><br>
         <label for="password1">Password:</label>
-        <input type="password1" id="password1" name="password1" required/><br>
+        <input type="password" id="password1" name="password1" required><br>
         <label for="password2">Enter password again:</label>
-        <input type="password2" id="password2" name="password2" required/><br>
-        <input type="submit" class="btn btn-secondary centered" value="Register">
+        <input type="password" id="password2" name="password2" required><br>
+        <div id="pass_check"></div>
+        <input type="submit" class="btn btn-secondary centered" value="Register" id="submit" disabled>
     </article>
-   </form>
+</form>
+
 
 {% endblock %}

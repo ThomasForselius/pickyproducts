@@ -43,16 +43,15 @@ def update_profile(request):
         if request.method == "POST":
             name = request.POST.get("name")
             email = request.POST.get("email")
-            password = request.POST.get("password1")
             user_id = request.POST.get("user_id")
             try: 
-                update_user = User.objects.filter(pk=user_id).update(first_name=name,email=email,password=password)
-                print(password)
+                update_user = User.objects.filter(pk=user_id).update(first_name=name,email=email)
                 print(name)
                 print(email)
+                messages.success(request, "Successfully updated profile.")
+                return redirect("show_prod")
             except ValueError as e:
                 messages.error(e)
-                #messages.error(request, "Account with that email doesn't exist. Please try again")
                 return render(request, 'admin/register.html')
         else:
             return render(request, 'admin/profile.html')

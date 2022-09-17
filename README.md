@@ -384,7 +384,7 @@ To add items to the database you need to add a frontend page by following these 
     ![Logged in](productsadmin/static/img/readme_img/admin_modal.png)
     - If username is incorrect/non existant > They will be redirected back to login page with an error message 
     ![Username doesn't exist](productsadmin/static/img/readme_img/username_doesnt_exist.png)
-    - If the password doesn't match the username:
+    - If the password doesn't match the username > They will be redirected back to login page with an error message
     ![Incorrect credentials](productsadmin/static/img/readme_img/wrong_creds.png)
 
 ## Deployment
