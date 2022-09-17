@@ -99,13 +99,35 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
     - When scrolling through products you can click 'view frame' to open a popup with more informaiton regarding the chosen product
 - Register page: if you don't have an account, this is were you register as a user
     ![Register page](productsadmin/static/img/readme_img/register.png)
-    - To ensure name are stored correctly, there is a javascript running to replace all non letter characters from the input value.
-    If the value of name is shorter than one letter, the input box will turn red
+    - To ensure names are stored correctly, there is a javascript running to replace all non-letter characters from the input value.
     ```javascript
-    const name = document.getElementById("name");
-    name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
+        const name = document.getElementById("name");
+        name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
+    ```
+    - If the value of name is shorter than one letter, the input box will turn red
+    ```javascript
+        if(name.length < 1){
+            name.className = "error";
+        }
+        else{
+            name.className = "pass";
+        }
     ```
     - To ensure correct registration details, there is a javascript running to check if password1 and password2 match. As long as they don't match, the register button will be disabled and a small alert will cover it
+    ```javascript
+        password2.addEventListener('keyup', (event) =>
+            {
+                if(password2.value != password1.value){
+                pass_check.innerText = "Passwords do not match";
+                pass_check.className = "alert alert-danger";
+                document.getElementById("submit").disabled = true;
+                }
+                else{
+                pass_check.innerText = "";
+                document.getElementById("submit").disabled = false;
+                pass_check.className = "";
+            }
+    ```
     ![Passwords do not match](productsadmin/static/img/readme_img/password_match.png)
 
 - Login page: this is where you login when you have registered
