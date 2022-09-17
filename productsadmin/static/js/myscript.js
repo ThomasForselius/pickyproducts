@@ -6,7 +6,6 @@ $(document).ready(function(){
   const password2 = document.getElementById('password2');
   const pass_check = document.getElementById('pass_check');
 
-
   name.addEventListener('keyup', (event) => {
     name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
       if(name.length < 1){
@@ -30,8 +29,4 @@ $(document).ready(function(){
       pass_check.className = "";
      }
   });
-
-
-
-
-  })
+})
