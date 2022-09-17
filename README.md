@@ -453,6 +453,16 @@ This code is accuired from your profile page when logged in.
 ### Pep8 testing python code
 
 The following pages and files have been tested using www.pep8online.com:
+- Settings.py
+![Pep8 Settings](productsadmin/static/img/readme_img/pep8.png)
+- Urls.py
+![Pep8 Urls](productsadmin/static/img/readme_img/pep8_urls.png)
+- Admin.py
+![Pep8 Admin](productsadmin/static/img/readme_img/pep8_admin.png)
+- Apps.py
+![Pep8 Apps](productsadmin/static/img/readme_img/pep8_apps.png)
+- Models.py
+![Pep8 Models](productsadmin/static/img/readme_img/pep8_models.png)
 - 
 
 ## Deployment

@@ -1,7 +1,6 @@
 $(document).ready(function(){
     
   const name = document.getElementById('name');
-  name = "";
   const password1 = document.getElementById('password1');
   const password2 = document.getElementById('password2');
   const pass_check = document.getElementById('pass_check');
