@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   name.addEventListener('keyup', (event) => {
       name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
-      if(name.value == ''){
+      if(name.length < 1){
           name.className = "error";
       }
       else{
