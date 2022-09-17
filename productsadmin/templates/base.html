@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickyFrame - a brand new way of displaying your posters!</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" crossorigin="anonymous">
-    <script src="{% static 'js/jquery.js' %}" type="text/javascript"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
     <script src="https://kit.fontawesome.com/5e9b4b033e.js" crossorigin="anonymous"></script>
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" crossorigin="anonymous">
     
@@ -33,13 +33,13 @@
                 <section class="callout text-center">
                         {% for message in messages %}
                             <article class="alert {{ message.tags }} alert-dismissible centered" role="alert" >
-                                {{ message }}
+                                <h5>{{ message }}</h5>
                               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="True">&times;</span>
                               </button>
                             </article>
                         {% endfor %}
-                    <img class="centered my-5" src="{% static 'img/logo_sv_sm.png' %}" height="100">
+                    <img class="centered my-5" src="{% static 'img/logo_sv_sm.png' %}" height="100" alt="Pickyproducts">
                     <h3>The <strong>brand new way</strong> to make your posters and pictures stand out!</h3>
                     <button class="btn btn-success">Click here for more information</button>
                 </section>
@@ -112,7 +112,7 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div class="media">
-                    <img src="{% static 'img/portrait_woman.png' %}" class="rounded-circle m-4 d-none d-sm-inline" style="float:left" height="100" width="100">
+                    <img src="{% static 'img/portrait_woman.png' %}" class="rounded-circle m-4 d-none d-sm-inline" style="float:left" height="100" width="100" alt="Qoute">
                     <div class="media-body">
                         <blockquote class="blockqoute">
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptate id dolor itaque sint. Vero, consequuntur quo culpa voluptates vitae earum doloribus commodi in? Repellat ipsam omnis voluptate officia facilis.
@@ -123,7 +123,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="media">
-                    <img src="{% static 'img/portrait_man.png' %}" class="rounded-circle mt-4 d-none d-sm-inline" style="float:right" height="100" width="100">
+                    <img src="{% static 'img/portrait_man.png' %}" class="rounded-circle mt-4 d-none d-sm-inline" style="float:right" height="100" width="100" alt="Qoute">
                     <div class="media-body">
                         <blockquote class="blockqoute">
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptate id dolor itaque sint. Vero, consequuntur quo culpa voluptates vitae earum doloribus commodi in? Repellat ipsam omnis voluptate officia facilis.
@@ -147,11 +147,11 @@
                     {% csrf_token %}    
                     <div class="form-group">
                       <label for="username" class="centered">Username:</label>
-                      <input type="username" class="form-control" name="username" required aria-describedby="emailHelp" placeholder="username">
+                      <input type="text" class="form-control" name="username" required aria-label="emailHelp" placeholder="username">
                     </div>
                     <div class="form-group">
                       <label for="password" class="centered">Password:</label>
-                      <input type="password" class="form-control" name="password" required aria-describedby="passworHelp" placeholder="password" autocomplete="current-password">
+                      <input type="password" class="form-control" name="password" required aria-label="passworHelp" placeholder="password" autocomplete="current-password">
                     </div>
                     <div class="centered">
                         <button type="submit" class="btn btn-primary my-2 w-10">Login</button>
@@ -169,7 +169,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header centered">
-              <h5 class="modal-title" id="staticBackdropLabel">Welcome {{ user }}!</h5>
+              <h5 class="modal-title" id="user_modal">Welcome {{ user }}!</h5>
             </div>
             <div class="modal-body">
                 {% if user.is_superuser %}
