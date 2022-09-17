@@ -1,7 +1,5 @@
 $(document).ready(function(){
     
-  const username = document.getElementById('username');
-  const email = document.getElementById('email');
   const name = document.getElementById('name');
   const password1 = document.getElementById('password1');
   const password2 = document.getElementById('password2');
@@ -9,7 +7,7 @@ $(document).ready(function(){
 
 
   name.addEventListener('keyup', (event) => {
-      name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
+      /* name.value = name.value.replace(/[^a-öA-Ö]*$/g, ""); */
       if(name.length < 1){
           name.className = "error";
       }
