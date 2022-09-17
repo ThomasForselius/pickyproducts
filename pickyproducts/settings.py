@@ -135,7 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 #STATIC_URL = '/static/'
-STATIC_URL = 'https://cdn.statically.io/gh/ThomasForselius/pickyproducts/blob/main/productsadmin/static/'
+STATIC_URL = 'https://cdn.statically.io/gh/ThomasForselius/pickyproducts/main/productsadmin/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
