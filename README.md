@@ -33,7 +33,7 @@ It will have a webshop that will utilize the same products and database as this 
 
 ### Typography
 
-- The fonts I have chosen are serif, to give a sense of 'classic' and 'elegant'
+- The fonts I have chosen are serif, to give a sense of 'classic' and 'elegance'
     - Font 1: Didot
         - This is the main font for the whole page
         - Link: https://www.cufonfonts.com/download/font/single/97226/didot-2
@@ -52,8 +52,12 @@ It will have a webshop that will utilize the same products and database as this 
 
 - The plus sign icon under the products list page is downloaded from: 
     - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
-- The profile icon at the right in the navbard when logged in is downloaded from: 
-
+- The profile icon at the right in the navbard when logged in is from fontawesome: 
+    ![Profile icon](productsadmin/static/img/readme_img/profile.png)
+    - Display the icon by using the following html code, retrieved from the www.fontawesome.com homepage:
+    ```html
+    <i class="fa-regular fa-user mx-2"></i>
+    ```
 
 ### Navigation
 
@@ -82,7 +86,10 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 - The only (at the moment) clickable component on the page is each product, where when you click 'View product' a modal popup will appear showing the selected products information
 ![Product modal](productsadmin/static/img/readme_img/product_modal.png)
 
-- Adding products from the product list in admin section: 
+- Trying to access a page that doesn't exist redirects you back to the homepage and displays an error message:
+![Page doesn't exist](productsadmin/static/img/readme_img/page_doesnt_exist.png)
+
+- Adding products from the product list in admin section, uses the icon below: 
      - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
 
 ## Features and pages
@@ -100,11 +107,18 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
     ```
     - To ensure correct registration details, there is a javascript running to check if password1 and password2 match. As long as they don't match, the register button will be disabled and a small alert will cover it
     ![Passwords do not match](productsadmin/static/img/readme_img/password_match.png)
+
 - Login page: this is where you login when you have registered
 
 - The basic feature of the webpage is a user friendly product management system where you can register as a user. 
 - Admins/Staff are added either through the django-admin terminal commands or via the integrated web-ui @ 'webpage'/admin
     - As an admin, you can create, read, update and delete products, by using the top right menu when logged in to access the admin section of the products page
+    - Add products page
+    ![Add product](productsadmin/static/img/readme_img/add_product.png)
+    ![Product added](productsadmin/static/img/readme_img/product_added.png)
+    - Deleted product
+    ![Deleted product](productsadmin/static/img/readme_img/deleted_product.png)
+    - Update / Edit product
 
 - There are 4 main sections to the landing page: 
     - Hero section
@@ -125,6 +139,7 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 - Users posting qoutes about the products > qoutes are displayed in carousel at the bottom of the landing page
 - Users posting ratings of the products > shown with stars on each product card
 - News letter that emails registered users with deals and new products
+- 
 
 ## Install Django: 
 
