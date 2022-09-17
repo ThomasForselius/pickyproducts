@@ -463,7 +463,16 @@ The following pages and files have been tested using www.pep8online.com:
 ![Pep8 Apps](productsadmin/static/img/readme_img/pep8_apps.png)
 - Models.py
 ![Pep8 Models](productsadmin/static/img/readme_img/pep8_models.png)
-- 
+- Views.py
+![Pep8 Views](productsadmin/static/img/readme_img/pep8_views.png)
+
+
+### HTML markup check
+
+The following pages and files have been tested using validator.w3.org:
+- http://pickyproducts.herokuapp.com
+- http://pickyproducts.herokuapp.com/
+- http://pickyproducts.herokuapp.com
 
 ## Deployment
 
