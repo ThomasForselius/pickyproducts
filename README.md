@@ -366,6 +366,15 @@ To add items to the database you need to add a frontend page by following these 
         remove_prod
     ```
 
+### Fontawesome
+
+To be able to use Fontawesome icons, you need to visit www.fontawesome.com and register for an account, then you can start to use the free icons available on the homepage. 
+- Step 1 is to add the following to the head of www.base.html (index page):
+This code is accuired from your profile page when logged in. 
+    ```html
+    <script src="https://kit.fontawesome.com/5e9b4b033e.js" crossorigin="anonymous"></script>
+    ```
+
 ## Testing
 
 - All testing on the page is done manually.
@@ -480,3 +489,10 @@ Now go back to the Heroku webpage and connect to github:
 
 *NOTE*
 - Heroku doesn't allow storing of static files, so you will have to upload them to either your own server or redicet to the github page for the project. 
+To use them you need to use an online service that is named Statically.io 
+- The utilize this service, go to your Settings.py -> scroll down to STATIC_URL -> now add this in front of your github account: 
+```html
+https://cdn.statically.io/gh/
+
+*example 'https://cdn.statically.io/gh/ThomasForselius/pickyproducts/main/productsadmin/static/'*
+```
