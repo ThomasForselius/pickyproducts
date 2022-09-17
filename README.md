@@ -417,9 +417,18 @@ The process of setting up my project on Heroku is the following:
     - Now add the following code, and paste your link you copied from Heroku: 
     ```python
     DATABASES = {
-    'default': dj_database_url.parse('*postgres copied link goes here')
+    'default': dj_database_url.parse('os.environ.get(DATABASE_URL)')
     }
     ```
+    - The next step is to add Heroku as an allowed host:
+    - In Settings.py ->  ALLOWED_HOSTS, change to the following: 
+    ```python
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+    ```
+    - Now go back to your Heroku website -> Settings -> Reveal config vars, and add:
+        - Key: HEROKU_HOSTNAME
+        - Value: pickyproducts.herokuapp.com
+
 - In the terminal, write the following: 
     ```
     python3 manage.py migrate
