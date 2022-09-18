@@ -54,8 +54,7 @@ def update_profile(request):
             email = request.POST.get("email")
             user_id = request.POST.get("user_id")
             try:
-                update_user = User.objects
-                .filter(pk=user_id)
+                update_user = User.objects.filter(pk=user_id)
                 .update(first_name=name, email=email)
                 messages.success(request, "Successfully updated profile.")
                 return redirect("show_prod")
@@ -142,8 +141,7 @@ def edit_prod(request, prod_id):
             desc = request.POST.get("desc")
             sale = 'sale' in request.POST
             sale_price = request.POST.get("sale_price")
-            Product.objects
-            .filter(pk=prod_id)
+            Product.objects.filter(pk=prod_id)
             .update(
                 name=name,
                 price=price,
