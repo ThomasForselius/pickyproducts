@@ -1,23 +1,23 @@
 # pickyproducts
 Django project CMS for CRUD operations regarding PickyFrame
 
-> 1. [What is it](#what-is-pickyproducts)
-> 2. [UI & UX](#ui-&-ux)
+> 1. [X] [What is it](#what-is-pickyproducts)
+> 2. [] [UI & UX](#ui-&-ux)
 > 3. [Features and pages](#features-and-pages)
 > 4. [X] [Installing Django](#install-django)
 > 5. [X] [Showing items from db](#showing-items-from-dbproducts)
 > 6. [X] [Adding Item to db](#adding-items-to-db)
 > 7. [X] [Updating Item in db](#updating-items-in-db)
 > 8. [X] [Deleting Item from db](#deleting-item-from-db)
-> 9. [Testing](#testing)
-> 10. [Deployment](#deployment)
-> 11. [Tech](#technologies) 
-> 12. [Support](#support)
+> 9. [X] [Testing](#testing)
+> 10. [] [Deployment](#deployment)
+> 11. [] [Tech](#technologies) 
+> 12. [] [Support](#support)
 
 ## What is PickyProducts?
 
 PickyProducts is a Fullstack project from me, Thomas Forselius; a '22 season student at CodeInstitute front end developer course. 
-The project is fullstack, that has admin/crud capabilities for managing products in a database. 
+The project has admin/crud capabilities for managing products in a database, and then the products are displayed on the main page. 
 
 The idea and goal with this project is to implement it into my upcoming website that is in the works and will be launched later in the year. 
 It will have a webshop that will utilize the same products and database as this project. It's so much more enticing to acutally code a project that will be used in a real world scenario. This keeps the life of the project fresh!
