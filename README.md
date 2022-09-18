@@ -438,7 +438,10 @@ This code is accuired from your profile page when logged in.
 
 - Admin functions
     - Remove product only removes the selected product and nothing else. 
-    - Editing and updating a product only updates that specific product and nothing else, using '.filter(pk=prod_id)' 
+    - Editing and updating a product only updates that specific product and nothing else, using 
+        ```python
+        .filter(pk=prod_id)' 
+        ```
     - Toggling sale price only toggles that product
         - Original price is striked out
         - Sale price is unstriked and displayed in dark red text
@@ -448,8 +451,9 @@ This code is accuired from your profile page when logged in.
         - Redirects to a page with a form to fill out with product details
         - Submitting the form only submits one item
         - The fields are filled out with the correct type of information
-        - Viewing the item in the products list 
-        - Viewing the item in the products section of the landing page
+        - Upon successful submit -> redirect back to 'Show products page' with success message
+    - Viewing the newly added item in the products list 
+    - Viewing the newly added item in the products section of the landing page
 
     - Clicking 'Show' on the products list page redirects to 'Show products page'
 
@@ -458,11 +462,11 @@ This code is accuired from your profile page when logged in.
 - Register form
     - Trying to register withiout filling out the form is not possible
     - Entering an email without proper details
-    - Making sure Password 1 and password 2 are the same (this is done using JQuery by comparing the two values)
-    - If user is registered, they are redirected to landing page with a green sucess message
+    - Making sure Password 1 and password 2 are the same (this is done using JQuery & Javascript by comparing the two values)
+    - If user is registered, they are redirected to landing page with a success message.
 
 - Login testing
-    - Entering correct credentials logs the user in and redirects to landing page. 
+    - Entering correct credentials logs the user in and redirects to landing page with success message. 
     At the right in the navbar the user will see their username in green
     ![Logged in](productsadmin/static/img/readme_img/admin_modal.png)
     - If username is incorrect/non existant > They will be redirected back to login page with an error message 
