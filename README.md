@@ -3,7 +3,7 @@ Django project CMS for CRUD operations regarding PickyFrame
 
 > 1. [X] [What is it](#what-is-pickyproducts)
 > 2. [] [UI & UX](#ui-&-ux)
-> 3. [Features and pages](#features-and-pages)
+> 3. [] [Features and pages](#features-and-pages)
 > 4. [X] [Installing Django](#install-django)
 > 5. [X] [Showing items from db](#showing-items-from-dbproducts)
 > 6. [X] [Adding Item to db](#adding-items-to-db)
@@ -555,3 +555,41 @@ https://cdn.statically.io/gh/
 
 *example 'https://cdn.statically.io/gh/ThomasForselius/pickyproducts/main/productsadmin/static/'*
 ```
+
+## Tech
+
+The following software is used for this project: 
+
+- HTML - Language
+- CSS - Language
+- Javascript - Language
+- JQuery - Javascript Library
+- Bootstrap - Javascript & CSS Library
+- Popper - Javascript & CSS Library
+- Python - Language
+- Django - Framework
+- Heroku - Webpage for hosting backend projects
+- GitHub - Webpage for version control and hosting backend projects
+- Statically.io - webpage for making it possible to include static files from github on your page. 
+- VS Code - IDE software for developing
+- Google Chrome - Web browser
+    - Inspection function 
+        - Checking for errors 
+        - Checking for console messages
+        - Checking responsive functionality
+        - Fine tuning styling 'on-the-fly'
+- Safari - Web browser
+- Freepik - Homepage for free images
+- Fontawesome - webpage and cdn for the use of icons
+- Affinity Photo - Image editing software
+- Affinity Designer - Vector Illustrating software for creating the logo
+- Procreate - Sketch software for sketching the logotype 
+
+## Support
+
+The following people and pages have helped me during the process with this project: 
+
+- Anders, My brother. He is my helpful design and functionality critic
+- Stackoverflow - for problem solving by reading others problems and solutions
+- Youtube, for checking out tutorials on Django
+    - Codemy.com is the goto page for help using Django
