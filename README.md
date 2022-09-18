@@ -422,12 +422,11 @@ This code is accuired from your profile page when logged in.
         - External links redirect to a new tab/webpage with the correct target domain
     - Leaves no error messages in console
     - Leaves no error messages on page
-    - If the user clicked logout, the page will redirect to landing page and the auth session is terminated/reset
+    - If the user clicked logout, the page will redirect to landing page and the auth session is terminated/reset, with success message
     - *Sign in / Sign Up* opens the correct modal popup on landing page
     - *profile name* opens the correct modal popup on landing page
     - Logo always returns to landing page
     - Plus-icon on 'Show products page' redirects to 'Add product page'
-    - Toggle icon toggles price
 
 - Faulty Adresses / Pages
     - All pages and addresses have been tested to show a 404 message/page if they don't exist.
