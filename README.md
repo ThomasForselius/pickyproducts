@@ -419,9 +419,15 @@ This code is accuired from your profile page when logged in.
 
 - Links testing: 
     - All links redirect to the correct page
+        - External links redirect to a new tab/webpage with the correct target domain
     - Leaves no error messages in console
     - Leaves no error messages on page
-    - If the user clicked logout, the page will redirect to landing page and the auth session is terminated
+    - If the user clicked logout, the page will redirect to landing page and the auth session is terminated/reset
+    - *Sign in / Sign Up* opens the correct modal popup on landing page
+    - *profile name* opens the correct modal popup on landing page
+    - Logo always returns to landing page
+    - Plus-icon on 'Show products page' redirects to 'Add product page'
+    - Toggle icon toggles price
 
 - Faulty Adresses / Pages
     - All pages and addresses have been tested to show a 404 message/page if they don't exist.
@@ -437,12 +443,15 @@ This code is accuired from your profile page when logged in.
         - Original price is striked out
         - Sale price is unstriked and displayed in dark red text
         - On the landing page > Products section, the product cards display a red-to-orange fade instead of a white background to display
-    - Clicking the add product icon on the products list page
+
+    - Clicking 'Add' and the 'add product icon' on the 'Show products page':
         - Redirects to a page with a form to fill out with product details
         - Submitting the form only submits one item
         - The fields are filled out with the correct type of information
         - Viewing the item in the products list 
         - Viewing the item in the products section of the landing page
+
+    - Clicking 'Show' on the products list page redirects to 'Show products page'
 
 - Clicking the 'view item' button on products page displays a modal popup with the correct information
 
