@@ -31,6 +31,15 @@ It will have a webshop that will utilize the same products and database as this 
     - Soft beige color palette, the go-to-choice for vloggers, bloggers and interior design photographers. "Know your target audience"
     - The green details and accent colors are a good and simple way to create a subtle colorful feel on the page without spoiling the laid back feeling from the beige
 
+### Wireframe
+
+
+
+### Logic Diagram
+
+Below is the login mapping of the page and its pages.
+![Logic Diagram](productsadmin/static/img/readme_img/logic_800_800.png)
+
 ### Typography
 
 - The fonts I have chosen are serif, to give a sense of 'classic' and 'elegance'
