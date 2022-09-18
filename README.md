@@ -11,8 +11,8 @@ Django project CMS for CRUD operations regarding PickyFrame
 > 8. [X] [Deleting Item from db](#deleting-item-from-db)
 > 9. [X] [Testing](#testing)
 > 10. [] [Deployment](#deployment)
-> 11. [] [Tech](#technologies) 
-> 12. [] [Support](#support)
+> 11. [X] [Tech](#technologies) 
+> 12. [X] [Support](#support)
 
 ## What is PickyProducts?
 
@@ -68,6 +68,8 @@ Below is the login mapping of the page and its pages.
     <i class="fa-regular fa-user mx-2"></i>
     ```
 
+## Features and pages
+
 ### Navigation
 
 The navigation is a simple nav-bar at the top of the page with only 2 clickable links: 
@@ -101,7 +103,8 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 - Adding products from the product list in admin section, uses the icon below: 
      - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
 
-## Features and pages
+
+### Landing page
 
 - Landing page: the default page you will view products at
     - (at the moment there is only view functionality for the products, unless you are admin/staff)
