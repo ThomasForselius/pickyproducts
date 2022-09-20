@@ -30,7 +30,7 @@ def register_user(request):
             return render(request, 'admin/register.html')
         except User.DoesNotExist:
             pass
-        newuser = User.objects.create_user(username, name, email, password)
+        newuser = User.objects.create_user(username=username, password=password, name=name, email=email)
         newuser.save()
         user_check = authenticate(
             request,
