@@ -105,7 +105,7 @@ def login_user(request):
 Shows the products in the product database
 '''
 def show_prod(request):
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('id')
     context = {
         'products': products
     }
@@ -117,7 +117,7 @@ Shows the product list in the admin section of the page
 '''
 def show(request):
     if request.user.is_superuser:
-        products = Product.objects.all()
+        products = Product.objects.all().order_by('id')
         context = {
             'products': products
         }
