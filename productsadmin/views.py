@@ -9,12 +9,18 @@ from .models import Product
 # Create your views here.
 
 
+'''
+Logs out a user
+'''
 def logout_user(request):
     logout(request)
     messages.success(request, "You logged out!")
     return redirect('show_prod')
 
 
+'''
+Registers a new user
+'''
 def register_user(request):
     if request.method == "POST":
         name = request.POST.get("name")
@@ -47,6 +53,9 @@ def register_user(request):
         return render(request, 'admin/register.html')
 
 
+'''
+Updates user Name and Email
+'''
 def update_profile(request):
     if request.user.is_authenticated:
         if request.method == "POST":
@@ -67,6 +76,10 @@ def update_profile(request):
         return redirect("show_prod")
 
 
+
+'''
+Logs the user in
+'''
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -88,6 +101,9 @@ def login_user(request):
         return render(request, 'login.html')
 
 
+'''
+Shows the products in the product database
+'''
 def show_prod(request):
     products = Product.objects.all()
     context = {
@@ -96,6 +112,9 @@ def show_prod(request):
     return render(request, 'base.html', context)
 
 
+'''
+Shows the product list in the admin section of the page
+'''
 def show(request):
     if request.user.is_superuser:
         products = Product.objects.all()
@@ -108,6 +127,10 @@ def show(request):
         return redirect('show_prod')
 
 
+
+'''
+Adds a new product to the database
+'''
 def add_prod(request):
     if request.method == "POST":
         name = request.POST.get("name")
@@ -127,6 +150,10 @@ def add_prod(request):
     return render(request, 'admin/add_prod.html')
 
 
+
+'''
+Edits an existing product
+'''
 def edit_prod(request, prod_id):
     if request.user.is_superuser:
         try:
@@ -163,12 +190,20 @@ def edit_prod(request, prod_id):
         return redirect('show_prod')
 
 
+
+'''
+Removes a product
+'''
 def remove_prod(request, prod_id):
     if request.user.is_superuser:
-        prod = get_object_or_404(Product, id=prod_id)
-        Product.objects.filter(pk=prod_id).delete()
-        messages.success(request, "You removed the product successfully")
-        return redirect('show')
+        try: 
+            prod = get_object_or_404(Product, id=prod_id)
+            Product.objects.filter(pk=prod_id).delete()
+            messages.success(request, "You removed the product successfully")
+            return redirect('show')
+        except: 
+            messages.error("Something went wrong. Go back and try again.")
+            return redirect('show')
     else:
         messages.warning(request, "You are not authorized for that page.")
         return redirect('show_prod')
