@@ -183,7 +183,7 @@ def edit_prod(request, prod_id):
             'sale': prod.sale,
             'sale_price': prod.sale_price
         }
-        messages.success("Product updated successfully")
+        messages.success(request, "Product updated successfully")
         return render(request, 'admin/edit_prod.html', context)
     else:
         messages.warning(request, "You are not authorized for that page.")
