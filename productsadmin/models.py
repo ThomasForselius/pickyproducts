@@ -1,8 +1,6 @@
 from tkinter import CASCADE
 from django.db import models
 
-from macpath import realpath
-
 # Create your database models here.
 
 class Product(models.Model):
