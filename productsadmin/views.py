@@ -219,3 +219,10 @@ def toggle_prod(request, prod_id):
 def error_404(request, exception):
     messages.error(request, "That page doesn't exist.")
     return redirect('show_prod')
+
+
+"""
+Adds like to a product
+"""
+def like(request, prod_id):
+    prod = get_object_or_404(Product, id=prod_id)
