@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 
 from macpath import realpath
