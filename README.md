@@ -3,14 +3,14 @@ Django project CMS for CRUD operations regarding PickyFrame
 
 > 1. [X] [What is it](#what-is-pickyproducts)
 > 2. [X] [UI & UX](#UI-&-UX)
-> 3. [] [Features and pages](#features-and-pages)
+> 3. [X] [Features and pages](#features-and-pages)
 > 4. [X] [Installing Django](#install-django)
 > 5. [X] [Showing items from db](#showing-items-from-dbproducts)
 > 6. [X] [Adding Item to db](#adding-items-to-db)
 > 7. [X] [Updating Item in db](#updating-items-in-db)
 > 8. [X] [Deleting Item from db](#deleting-item-from-db)
 > 9. [X] [Testing](#testing)
-> 10. [] [Deployment](#deployment)
+> 10. [X] [Deployment](#deployment)
 > 11. [X] [Tech](#technologies) 
 > 12. [X] [Support](#support)
 
