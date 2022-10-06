@@ -449,11 +449,14 @@ border: none;
 }
 
 .social{
+    text-align: center;
+    width: 100vw;
     color: white;
     padding: 10px;
 }
 
 .contact{
+    text-align: center;
     width: auto;
     display: block;
     margin: auto auto;
