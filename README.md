@@ -2,7 +2,7 @@
 Django project CMS for CRUD operations regarding PickyFrame
 
 > 1. [X] [What is it](#what-is-pickyproducts)
-> 2. [] [UI & UX](#UI-&-UX)
+> 2. [X] [UI & UX](#UI-&-UX)
 > 3. [] [Features and pages](#features-and-pages)
 > 4. [X] [Installing Django](#install-django)
 > 5. [X] [Showing items from db](#showing-items-from-dbproducts)
@@ -102,7 +102,7 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
 
 - Adding products from the product list in admin section, uses the icon below: 
      - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
-
+     ![Add product](productsadmin/static/img/readme_img/add_icon.png)
 
 ### Landing page
 
