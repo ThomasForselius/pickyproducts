@@ -451,8 +451,12 @@ border: none;
 .social{
     text-align: center;
     width: 100vw;
-    color: #fff;
     padding: 10px;
+}
+
+.social a{
+    color: #fff;
+    text-decoration: none;
 }
 
 .contact{
