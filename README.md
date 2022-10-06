@@ -33,7 +33,11 @@ It will have a webshop that will utilize the same products and database as this 
 
 ### Wireframe
 
+- Mobile wireframe: 
+![Mobile wireframe](productsadmin/static/img/readme_img/wireframe_mobile.png)
 
+- Desktop wireframe
+![Desktop wireframe](productsadmin/static/img/readme_img/wireframe.png)
 
 ### Logic Diagram
 
