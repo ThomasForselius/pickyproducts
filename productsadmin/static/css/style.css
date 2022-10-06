@@ -449,7 +449,8 @@ border: none;
 }
 
 .social{
-    text-align: center;
+    display: flex;
+    justify-content: center;
     width: 100vw;
     padding: 10px;
 }
@@ -464,5 +465,9 @@ border: none;
     width: auto;
     display: block;
     margin: auto auto;
+}
+
+.contact p {
+    display: block;
     color: #fff;
 }
