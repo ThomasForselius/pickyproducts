@@ -172,6 +172,12 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
         - At the bottom of the landin page there is a section where you can read what other users have said about the products. A future feature could be that registered uses can leave ratings and qoutes about the products, and that they are stored in the database. 
         Then those qoutes are loaded into the qoutes section of the landing page dynimcally, displayed with a carousell. 
 
+### Footer
+
+At the bottom of the page is the footer. 
+Here there are social media icon links and an adress 
+![Footer](productsadmin/static/img/readme_img/footer.png)
+
 ### Future potential features
 
 - Users posting qoutes about the products > qoutes are displayed in carousel at the bottom of the landing page

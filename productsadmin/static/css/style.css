@@ -448,26 +448,22 @@ border: none;
     outline: none !important;
 }
 
-.social{
+.social-link{
     display: flex;
-    justify-content: center;
-    width: 100vw;
-    padding: 10px;
+    justify-content:space-around;
+    margin: 10px 10px;
+    text-decoration: none;
+    color: #198754;
+    transition: color 0.5s ease-in-out;
 }
 
-.social a{
-    color: #fff;
-    text-decoration: none;
+.social-link:hover{
+    color: black;
 }
 
 .contact{
     text-align: center;
-    width: auto;
+    width: 200px;
     display: block;
     margin: auto auto;
-}
-
-.contact p {
-    display: block;
-    color: #fff;
 }

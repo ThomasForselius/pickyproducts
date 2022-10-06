@@ -80,7 +80,7 @@
   --bs-border-radius-pill: 50rem;
   --bs-heading-color: ;
   --bs-link-color: rgba(3,3,3,0.5);
-  --bs-link-hover-color: rgba(3,3,3, 0.9);
+  --bs-link-hover-color: rgba(0, 0, 0, 0.9);
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
