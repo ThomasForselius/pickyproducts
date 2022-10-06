@@ -451,7 +451,7 @@ border: none;
 .social{
     text-align: center;
     width: 100vw;
-    color: white;
+    color: #fff;
     padding: 10px;
 }
 
@@ -460,5 +460,5 @@ border: none;
     width: auto;
     display: block;
     margin: auto auto;
-    color: white;
+    color: #fff;
 }
