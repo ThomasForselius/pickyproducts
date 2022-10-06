@@ -447,3 +447,14 @@ border: none;
     border:1px solid #090;
     outline: none !important;
 }
+
+.social{
+    color: white;
+    padding: 10px;
+}
+
+.contact{
+    width: auto;
+    display: block;
+    margin: auto auto;
+}
