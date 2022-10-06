@@ -2,7 +2,7 @@
 Django project CMS for CRUD operations regarding PickyFrame
 
 > 1. [X] [What is it](#what-is-pickyproducts)
-> 2. [] [UI & UX](#ui-&-ux)
+> 2. [] [UI & UX](#UI-&-UX)
 > 3. [] [Features and pages](#features-and-pages)
 > 4. [X] [Installing Django](#install-django)
 > 5. [X] [Showing items from db](#showing-items-from-dbproducts)
@@ -556,6 +556,14 @@ The process of setting up my project on Heroku is the following:
     web: gunicorn *name of your application*.wsgi:application
     ```
 *Now add and commmit these changes to github and then move to the next step*
+
+The last thing you need to do is create a new secret key for django, since the original one is in the git commit history
+- Go to settings.py -> SECRET_KEY
+- Remove the current secret key
+- Navigate to https://miniwebtool.com/django-secret-key-generator/ and create a new secret key
+- Now go to your Heroku page -> Settings -> Config vars
+    - Now add a key called 'SECRET_KEY' 
+    - In the value field, paste the key you copied from the previous webpage
 
 Now go back to the Heroku webpage and connect to github: 
 - Under Deploy -> scroll down to GitHub and connect to your project
