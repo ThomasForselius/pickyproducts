@@ -22,6 +22,10 @@ The project has admin/crud capabilities for managing products in a database, and
 The idea and goal with this project is to implement it into my upcoming website that is in the works and will be launched later in the year. 
 It will have a webshop that will utilize the same products and database as this project. It's so much more enticing to acutally code a project that will be used in a real world scenario. This keeps the life of the project fresh!
 
+The idea with this website is to make it a template for an easy webpage with user registration and product management via a login as Admin/Staff.
+
+The page can be forked/cloned and used for other products, simply by changing the logo, background image and descriptive text on the page. There is no need to make any other changes to the back end code other than some basic settings like db, title, static folder etc.
+
 ## UI & UX
 
 - On of the most important features of webpages today is being responsive, since the largest amount of people view webpages on their mobile devices. Responsive websites are a must, if your goal is the keep the interest of the visitor
