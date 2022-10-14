@@ -33,12 +33,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
+#local key !t$)+!t+c_u&^u0ywlmxo9v)+e6+8f6(jfane_zz^*bt&o8to1
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
-#ALLOWED_HOSTS = ['localhost']
+# ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -95,7 +96,6 @@ WSGI_APPLICATION = 'pickyproducts.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    #'default': dj_database_url.parse('postgres://fkdotpgbkndcaf:acd25588de8499cd0868508b8d33067391f847fb5778afc98c2bf51b4351d83f@ec2-52-48-159-67.eu-west-1.compute.amazonaws.com:5432/danh53u1pe1573')
 }
 
 # Password validation
@@ -134,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-#STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 STATIC_URL = 'https://cdn.statically.io/gh/ThomasForselius/pickyproducts/main/productsadmin/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

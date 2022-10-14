@@ -460,3 +460,32 @@ border: none;
     display: block;
     margin: auto auto;
 }
+
+.like_button{
+    border: none;
+    background-color: transparent;
+    color: #198754;
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.like_button:hover{
+    transform: scale(1.5);
+    color: #cc0000;
+}
+
+.like_container{
+    margin: 5px 0 0 0;
+    height: 10px;   
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.like_container span{
+    margin-left: 10px;
+}
+
+.fa-solid{
+    color:rgb(200, 6, 6);
+}

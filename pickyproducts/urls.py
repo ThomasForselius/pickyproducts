@@ -30,7 +30,7 @@ urlpatterns = [
     path('logout_user', views.logout_user, name='logout_user'),
     path('register_user', views.register_user, name='register_user'),
     path('update_profile', views.update_profile, name='update_profile'),
+    path('like_prod', views.like_prod, name='like_prod'),
 ]
-
 
 handler404 = 'productsadmin.views.error_404'

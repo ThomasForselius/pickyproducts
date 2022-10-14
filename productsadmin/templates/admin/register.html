@@ -16,17 +16,53 @@
         <label for="name">Name: </label>
         <input type="text" id="name" name="name" maxlength="30" required placeholder="Name" aria-label="name"><br>
         <label for="username">Username: </label>
-        <input type="text" id="username" name="username" maxlength="30" required placeholder="Username" aria-label="username"><br>
+        <input type="text" id="username" name="username" maxlength="30" required placeholder="Username" aria-label="username" autocomplete="username"><br>
         <label for="email">Email: </label>
         <input type="email" id="email" name="email" required placeholder="email@email.com" aria-label="email"><br>
         <label for="password1">Password:</label>
-        <input type="password" id="password1" name="password1" required placeholder="password" aria-label="password1"><br>
+        <input type="password" id="password1" name="password1" required placeholder="password" aria-label="password1" autocomplete="new-password"><br>
         <label for="password2">Enter password again:</label>
-        <input type="password" id="password2" name="password2" required placeholder="password again" aria-label="password2"><br>
+        <input type="password" id="password2" name="password2" required placeholder="password again" aria-label="password2" autocomplete="new-password"><br>
         <div id="pass_check"></div>
         <input type="submit" class="btn btn-secondary centered" value="Register" id="submit" disabled>
     </article>
 </form>
 
+<script>
 
+ $(document).ready(function(){
+
+  const name = document.getElementById('name');
+  const password1 = document.getElementById('password1');
+  const password2 = document.getElementById('password2');
+  const pass_check = document.getElementById('pass_check');
+
+  password2.addEventListener('keyup', (event) =>
+  {
+     if(password2.value != password1.value){
+      pass_check.innerText = "Passwords do not match";
+      pass_check.className = "alert alert-danger";
+      document.getElementById("submit").disabled = true;
+     }
+     else{
+      pass_check.innerText = "";
+      document.getElementById("submit").disabled = false;
+      pass_check.className = "";
+     }
+  });
+
+  name.addEventListener('keyup', (event) => {
+    name.value = name.value.replace(/[^a-öA-Ö]*$/g, "");
+      if(name.length < 1){
+          name.className = "error";
+      }
+      else{
+          name.className = "pass";
+      }
+  }
+  );
+
+ });
+
+</script>
 {% endblock %}

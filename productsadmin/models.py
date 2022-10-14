@@ -1,8 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
+from urllib import request
+
 
 # Create your database models here.
 
+
+'''
+Defines a product class
+'''
 class Product(models.Model):
     name = models.CharField(max_length=30, null=False, blank=False)
     price = models.DecimalField(null=False, blank=False, max_digits=5, decimal_places=2)
@@ -15,5 +21,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name # displays the item name in the Admin panel instead of 'Item /number'
 
-    def num_of_likes(self):
+    def num_likes(self):
         return self.likes.count() # counts the number of likes
+        

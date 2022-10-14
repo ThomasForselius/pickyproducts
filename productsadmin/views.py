@@ -1,12 +1,15 @@
 from email import message
+from itertools import product
 from pickle import NONE
 from urllib import request
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Product
-# Create your views here.
+from django.http import HttpResponseRedirect, JsonResponse
+from django.urls import reverse
 
 
 '''
@@ -132,6 +135,12 @@ def show(request):
 Adds a new product to the database
 '''
 def add_prod(request):
+    if request.user.is_superuser:
+        try:
+            prod = get_object_or_404(Product, id=prod_id)
+        except:
+            messages.warning(request, f"Product ID {prod_id} doesn't exist.")
+            return redirect('show')
     if request.method == "POST":
         name = request.POST.get("name")
         price = request.POST.get("price")
@@ -224,5 +233,18 @@ def error_404(request, exception):
 """
 Adds like to a product
 """
-def like(request, prod_id):
-    prod = get_object_or_404(Product, id=prod_id)
+def like_prod(request):
+    if request.method == 'POST':
+        success = ''
+        product_id = request.POST['product_id']
+        user = request.user.id
+        prod = get_object_or_404(Product, id=product_id)
+        if prod.likes.filter(id=user).exists():
+            prod.likes.remove(user)
+            prod.save()
+            success = prod.num_likes()
+        else:
+            prod.likes.add(user)
+            prod.save()
+            success = prod.num_likes()
+        return JsonResponse({'result': success,})
