@@ -559,7 +559,8 @@ To use github in your local IDE, follow these steps:
 ![Source control](productsadmin/static/img/readme_img/source_icon.png)
 - This displayes all the files that have been modified and need to be commited to github
 - Enter a commit message and then press 'Commit'
-- Now you need to push those changes to github by clicking 'S
+- Now you need to push those changes to github by clicking the 'Push' button
+![Push](productsadmin/static/img/readme_img/push.png)
 
 ### Heroku
 
