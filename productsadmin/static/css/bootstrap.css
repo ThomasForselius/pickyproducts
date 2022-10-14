@@ -5494,7 +5494,7 @@ textarea.form-control-lg {
   --bs-modal-zindex: 1055;
   --bs-modal-width: 300px;
   --bs-modal-padding: 1rem;
-  --bs-modal-margin: 2rem auto;
+  --bs-modal-margin: auto auto;
   --bs-modal-color: ;
   --bs-modal-bg: #fff;
   --bs-modal-border-color: var(--bs-border-color-translucent);

@@ -75,6 +75,14 @@ Below is the login mapping of the page and its pages.
     ```html
     <i class="fa-regular fa-user mx-2"></i>
     ```
+- The like button is a heart
+    - If the product has not been liked by the user it is green without fill
+    - If the product has been liked by the user it is red
+    ![Likes](productsadmin/static/img/readme_img/like.png)
+
+    ```html
+    <i class="fa-regular fa-heart"></i>
+    ```
 
 ## Features and pages
 
@@ -176,6 +184,11 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
         - At the bottom of the landin page there is a section where you can read what other users have said about the products. A future feature could be that registered uses can leave ratings and qoutes about the products, and that they are stored in the database. 
         Then those qoutes are loaded into the qoutes section of the landing page dynimcally, displayed with a carousell. 
 
+- Like products
+    - Each product has a like button and a like counter that displays the amount of users have liked the product
+    - The like button is only available to click if the user is logged in
+    ![Like](productsadmin/static/img/readme_img/like.png)
+
 ### Footer
 
 At the bottom of the page is the footer. 
@@ -187,7 +200,6 @@ Here there are social media icon links and an adress
 - Users posting qoutes about the products > qoutes are displayed in carousel at the bottom of the landing page
 - Users posting ratings of the products > shown with stars on each product card
 - News letter that emails registered users with deals and new products
-- Liking products with AJAX request so page doesn't reload
 
 ## Install Django: 
 
@@ -470,6 +482,7 @@ This code is accuired from your profile page when logged in.
 
     - Clicking 'Show' on the products list page redirects to 'Show products page'
 
+
 - Clicking the 'view item' button on products page displays a modal popup with the correct information
 
 - Register form
@@ -512,7 +525,43 @@ The following pages and files have been tested using validator.w3.org:
 - http://pickyproducts.herokuapp.com/
 - http://pickyproducts.herokuapp.com
 
+
+- Web browser
+  - Google Chrome
+  - Safari
+- Visual 
+  - Both HTML structure and CSS styling is tested on each web browser
+- Functionality testing
+  - Each button is tested
+  - Responsive design tested automatically with http://ami.responsivedesign.is
+  - Responsive sizing tested manually with Chrome Dev tools Inspector
+    - Tablet and desktop version on screen size above 400px wide;
+    - Mobile version on screen size below 400px
+
 ## Deployment
+
+### Local live server
+
+Building this website I have used VS Code for the coding, while Google Chrome for the visual feedback on a local server extension. 
+This lets me test the webpage out before commiting and pushing it to Github for live testing with online extensions and validators like Lighthouse, W3C html validator and W3C CSS validator as well as Javascipt Validator CodeBeautify. 
+
+### GitHub
+
+GitHub is a free git version control online platform for people to upload and share web development projects.
+To use github in your local IDE, follow these steps:
+
+- Create a repository on your github account
+- Now open your local IDE or online IDE and clone the created repository using the instructions for that specific IDE
+- I use VS Code, so I select 'Clone repository' in the file browser window on the left
+- Search in the navbar at the top for the name of the repository that you created on github
+
+- When working and saving files, click the 'Source control' icon
+![Source control](productsadmin/static/img/readme_img/source_icon.png)
+- This displayes all the files that have been modified and need to be commited to github
+- Enter a commit message and then press 'Commit'
+- Now you need to push those changes to github by clicking 'S
+
+### Heroku
 
 - Heroku is a free (until Nov 28'th) webpage where you can host your back end web projects, and connect them to GitHub to make use of front end functionality.
 
