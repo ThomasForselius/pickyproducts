@@ -514,3 +514,60 @@ hr{
 .border{
     border: 2px solid #000;
 }
+
+.details{
+    margin-top: 20px;
+    margin-left: 0;
+    text-align: left;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.fa-comment-dots{
+    position: relative;
+    margin: auto 10px auto 0;
+}
+
+.comment_form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 10px;
+}
+
+.comment_form > label{
+    margin: 5px 10px auto 0;
+    text-align: left;
+    width: 50px;
+    font-size: 14px;
+}
+
+.comment_form > input, textarea{
+    padding: 2px auto;
+    text-align: left;
+    width: 100%;
+    margin: 5px auto;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+}
+
+.comment_form > input{
+    height: 30px;
+}
+
+.comment_form > textarea{
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.comment_form > [type=submit]{
+    border-radius: 50px;
+    width: 100px;
+    text-align: center;
+    height: auto;
+    margin-top: 10px;
+}

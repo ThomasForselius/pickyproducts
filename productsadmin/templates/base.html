@@ -101,11 +101,17 @@
                         {{ product.desc|safe }}
                         
                         {% if user.is_authenticated %}
-                            <details>
+                            <details class="details">
                                 <summary>
-                                    - Post a comment -
+                                    <i class="fa-regular fa-comment-dots"></i>Click to post comment
                                 </summary>
-                                testing testing
+                                <form action="post" name="comment" id="form{{ product.id }}" class="comment_form">
+                                    <label for="title{{ product.id }}">Title: </label>
+                                    <input type="text" name="comment-title" maxlength="30" id="title{{ product.id }}" class="input" placeholder="Comment title">
+                                    <label for="comment{{ product.id }}">Comment: </label>
+                                    <textarea rows="4" name="comment" maxlength="100" id="comment{{ product.id }}" class="input" placeholder="Product comment"></textarea>
+                                    <input type="submit" id="submit{{ product.id }}" class="btn btn-primary" value="Submit">
+                                </form>
                             </details>
                         {% endif %}
                     </div>
