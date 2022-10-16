@@ -200,9 +200,12 @@ Here there are social media icon links and an adress
 
 ### Future potential features
 
-- Users posting qoutes about the products > qoutes are displayed in carousel at the bottom of the landing page
+- Users posting comments about the products > comments are displayed in carousel at the bottom of the product modal popup
 - Users posting ratings of the products > shown with stars on each product card
 - News letter that emails registered users with deals and new products
+- When adding a product, you can upload image
+- Users can add qoutes about the general service and products
+    - These qoutes show up in a carousel in the Qoutes section of the page
 
 ## Install Django: 
 
