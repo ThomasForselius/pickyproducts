@@ -563,6 +563,19 @@ The deployed webpage has been tested with the Lighthouse plugin for Google Chrom
 Building this website I have used VS Code for the coding, while Google Chrome for the visual feedback on a local server extension. 
 This lets me test the webpage out before commiting and pushing it to Github for live testing with online extensions and validators like Lighthouse, W3C html validator and W3C CSS validator as well as Javascipt Validator CodeBeautify. 
 
+### Whitenoise
+
+To be able to use static files online, I use a package called Whitenoise. 
+
+- Step 1: in your terminal in VSCode, enter 
+```html
+pip install whitenoise
+```
+- Step 2: open settins.py and in the *MIDDLEWARE* section, as the second option add: 
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+- Step 3
+
+
 ### GitHub
 
 GitHub is a free git version control online platform for people to upload and share web development projects.
