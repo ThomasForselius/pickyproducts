@@ -37,6 +37,8 @@ The page can be forked/cloned and used for other products, simply by changing th
 
 - Instead of having a cto button, I have placed 3 animated arrows, showing the user that they can scroll down, showing the posted products below
 ![Arrows](productsadmin/static/img/readme_img/arrows.png)
+- This was derived from the following video tutorial: 
+[Youtube-Link]https://www.youtube.com/watch?v=U7ACjZpk-jk&t=217s
 
 ### Wireframe
 
@@ -562,19 +564,6 @@ The deployed webpage has been tested with the Lighthouse plugin for Google Chrom
 
 Building this website I have used VS Code for the coding, while Google Chrome for the visual feedback on a local server extension. 
 This lets me test the webpage out before commiting and pushing it to Github for live testing with online extensions and validators like Lighthouse, W3C html validator and W3C CSS validator as well as Javascipt Validator CodeBeautify. 
-
-### Whitenoise
-
-To be able to use static files online, I use a package called Whitenoise. 
-
-- Step 1: in your terminal in VSCode, enter 
-```html
-pip install whitenoise
-```
-- Step 2: open settins.py and in the *MIDDLEWARE* section, as the second option add: 
-    "whitenoise.middleware.WhiteNoiseMiddleware",
-- Step 3
-
 
 ### GitHub
 
