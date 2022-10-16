@@ -521,12 +521,16 @@ The following pages and files have been tested using www.pep8online.com:
 ![Pep8 Views](productsadmin/static/img/readme_img/pep8_views.png)
 
 
-### HTML markup check
+### HTML Validator testing
 
-The following pages and files have been tested using validator.w3.org:
-- http://pickyproducts.herokuapp.com
-- http://pickyproducts.herokuapp.com/
-- http://pickyproducts.herokuapp.com
+The HTML code check has been checked by https://validator.w3c.org
+There are two warnings regarding the page:
+- Article (x2) lacks heading. This is because the headings are positioned within <div>'s inside the article. 
+![HTML Validator](productsadmin/static/img/readme_img/validator_html.png)
+
+### Javascript Validator Testing
+
+The Javascript has been checked by https://jigsaw.w3.org/css-validator/validator
 
 
 - Web browser

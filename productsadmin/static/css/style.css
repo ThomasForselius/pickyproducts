@@ -420,7 +420,7 @@ border: none;
     width: 25px;
     height: 25px;
     margin-right: 10px;
-    fill: linear-gradient(42deg, rgba(46,255,0,1) 0%, rgb(50, 177, 255) 100%);
+    background-color: linear-gradient(42deg, rgba(46,255,0,1) 0%, rgb(50, 177, 255) 100%);
 }
 
 .add{
@@ -533,7 +533,6 @@ hr{
 .comment_form{
     display: flex;
     flex-direction: column;
-    align-items: left;
     padding-top: 10px;
 }
 
@@ -545,7 +544,7 @@ hr{
 }
 
 .comment_form > input, textarea{
-    padding: 2px auto;
+    padding: 2px 0;
     text-align: left;
     width: 100%;
     margin: 5px auto;
