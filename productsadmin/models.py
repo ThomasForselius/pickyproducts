@@ -1,6 +1,10 @@
+from tkinter import CASCADE
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 from urllib import request
+
+from django.shortcuts import get_object_or_404
 
 
 # Create your database models here.
@@ -23,4 +27,3 @@ class Product(models.Model):
 
     def num_likes(self):
         return self.likes.count() # counts the number of likes
-        

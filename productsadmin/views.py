@@ -39,7 +39,11 @@ def register_user(request):
             return render(request, 'admin/register.html')
         except User.DoesNotExist:
             pass
-        newuser = User.objects.create_user(username=username, password=password, first_name=name, email=email)
+        newuser = User.objects.create_user(
+            username=username,
+            password=password,
+            first_name=name,
+            email=email)
         newuser.save()
         user_check = authenticate(
             request,
@@ -77,7 +81,6 @@ def update_profile(request):
     else:
         messages.error(request, "You are not authorised for that page.")
         return redirect("show_prod")
-
 
 
 '''
@@ -130,7 +133,6 @@ def show(request):
         return redirect('show_prod')
 
 
-
 '''
 Adds a new product to the database
 '''
@@ -157,7 +159,6 @@ def add_prod(request):
         messages.success(request, 'Product added successfully!')
         return redirect('show')
     return render(request, 'admin/add_prod.html')
-
 
 
 '''
@@ -199,7 +200,6 @@ def edit_prod(request, prod_id):
         return redirect('show_prod')
 
 
-
 '''
 Removes a product
 '''
@@ -218,6 +218,9 @@ def remove_prod(request, prod_id):
         return redirect('show_prod')
 
 
+'''
+Toggles a product's sale value to True or False
+'''
 def toggle_prod(request, prod_id):
     prod = get_object_or_404(Product, id=prod_id)
     prod.sale = not prod.sale
@@ -225,6 +228,9 @@ def toggle_prod(request, prod_id):
     return redirect('show')
 
 
+'''
+Changes the standard 404 page to a custom warning message on the landing page
+'''
 def error_404(request, exception):
     messages.error(request, "That page doesn't exist.")
     return redirect('show_prod')

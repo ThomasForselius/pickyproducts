@@ -571,3 +571,43 @@ hr{
     height: auto;
     margin-top: 10px;
 }
+
+.arrow{
+    margin-top: 100px;
+}
+.arrow span{
+    content: '';
+    margin: 5px auto;
+    display: block;
+    height: 14px;
+    width: 14px;
+    border-bottom: 1px solid #198754;
+    border-right: 1px solid #198754;
+    transform: rotate(45deg);
+    opacity: 0;
+    animation: animate 2s infinite;
+}
+
+.arrow span:nth-child(1){
+    animation-delay: 200ms;   
+}
+.arrow span:nth-child(2){
+    animation-delay: 300ms;   
+}
+.arrow span:nth-child(3){
+    animation-delay: 400ms;   
+}
+
+@keyframes animate{
+    0%{
+        opacity: 0;
+        /*transform: rotate(45deg) translate(-20px,-20px);*/
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(40px,40px);
+    }
+}

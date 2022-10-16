@@ -41,6 +41,11 @@
                         {% endfor %}
                     <img class="centered my-5" src="{% static 'img/logo_sv_sm.png' %}" height="100" alt="Pickyproducts">
                     <h3>The <strong>brand new way</strong> to make your posters and pictures stand out!</h3>
+                    <div class="arrow">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </section>
             </div>
         </div>
@@ -99,21 +104,6 @@
                     </div>
                     <div class="modal-body">
                         {{ product.desc|safe }}
-                        
-                        {% if user.is_authenticated %}
-                            <details class="details">
-                                <summary>
-                                    <i class="fa-regular fa-comment-dots"></i>Click to post comment
-                                </summary>
-                                <form action="post" name="comment" id="form{{ product.id }}" class="comment_form">
-                                    <label for="title{{ product.id }}">Title: </label>
-                                    <input type="text" name="comment-title" maxlength="30" id="title{{ product.id }}" class="input" placeholder="Comment title">
-                                    <label for="comment{{ product.id }}">Comment: </label>
-                                    <textarea rows="4" name="comment" maxlength="100" id="comment{{ product.id }}" class="input" placeholder="Product comment"></textarea>
-                                    <input type="submit" id="submit{{ product.id }}" class="btn btn-primary" value="Submit">
-                                </form>
-                            </details>
-                        {% endif %}
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary centered" data-dismiss="modal">Close</button>
@@ -139,7 +129,7 @@
         <div class="row centered">
             <div class="col-12 col-md-6">
                 <div class="media">
-                    <img src="{% static 'img/portrait_woman.png' %}" class="rounded-circle d-none d-sm-inline" style="float:left" height="100" width="100" alt="Qoute">
+                    <img src="{% static 'img/portrait_woman.png' %}" class="rounded-circle d-none d-sm-inline" style="float:left" height="100" width="100" alt="Qoute #1">
                     <div class="media-body">
                         <blockquote class="blockqoute centered l-2">
                             <p class="mx-4"><u>This frame is amazing!</u><br>
@@ -151,7 +141,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="media">
-                    <img src="{% static 'img/portrait_man.png' %}" class="rounded-circle d-none d-sm-inline" style="float:left" height="100" width="100" alt="Qoute">
+                    <img src="{% static 'img/portrait_man.png' %}" class="rounded-circle d-none d-sm-inline" style="float:left" height="100" width="100" alt="Qoute #2">
                     <div class="media-body">
                         <blockquote class="blockqoute centered">
                             <p class="mx-4"><u>Great stuff!</u><br>
@@ -216,9 +206,9 @@
 
 <footer>
     <nav class="social centered">
-        <a href="https://www.facebook.com" class="social-link" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.twitter.com" class="social-link" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.facebook.com" class="social-link" target="_blank" alt="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com" class="social-link" target="_blank" alt="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.twitter.com" class="social-link" target="_blank" alt="Twitter"><i class="fa-brands fa-twitter"></i></a>
     </nav>
     <div class="centered w-10 mb-4 my-2">
         <p class="contact">
