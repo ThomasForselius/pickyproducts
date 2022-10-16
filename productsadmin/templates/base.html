@@ -154,7 +154,7 @@
             </div>
         </div>
     </article>
-    <article class="modal fade" id="staticBackdrop{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <article class="modal fade" id="staticBackdrop{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdrop{{ product.id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header" style="justify-content: right;">
@@ -187,7 +187,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header centered">
-              <h5 class="modal-title" id="user_modal">Welcome {{ user }}!</h5>
+              <h5 class="modal-title">Welcome {{ user }}!</h5>
             </div>
             <div class="modal-body">
                 {% if user.is_superuser %}
@@ -206,9 +206,9 @@
 
 <footer>
     <nav class="social centered">
-        <a href="https://www.facebook.com" class="social-link" target="_blank" alt="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com" class="social-link" target="_blank" alt="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.twitter.com" class="social-link" target="_blank" alt="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="https://www.facebook.com" class="social-link" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.twitter.com" class="social-link" target="_blank"><i class="fa-brands fa-twitter"></i></a>
     </nav>
     <div class="centered w-10 mb-4 my-2">
         <p class="contact">
