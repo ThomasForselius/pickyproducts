@@ -95,11 +95,11 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="product_modal{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="user_modal" aria-hidden="true">
+            <div class="modal fade" id="product_modal{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="product_modal" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header centered">
-                        <p class="modal-title mx-2" id="staticBackdropLabel">{{ product.name }}!</p>
+                        <p class="modal-title mx-2" id="staticBackdropLabel{{ product.id }}">{{ product.name }}!</p>
                         <img class="card-img-top card-large" src="{% static  'img/'' %}{{product.pic}}" alt="{{ product.name }}">
                     </div>
                     <div class="modal-body">
@@ -154,7 +154,7 @@
             </div>
         </div>
     </article>
-    <article class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <article class="modal fade" id="staticBackdrop{{ product.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header" style="justify-content: right;">

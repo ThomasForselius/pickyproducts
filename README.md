@@ -35,6 +35,9 @@ The page can be forked/cloned and used for other products, simply by changing th
     - Soft beige color palette, the go-to-choice for vloggers, bloggers and interior design photographers. "Know your target audience"
     - The green details and accent colors are a good and simple way to create a subtle colorful feel on the page without spoiling the laid back feeling from the beige
 
+- Instead of having a cto button, I have placed 3 animated arrows, showing the user that they can scroll down, showing the posted products below
+![Arrows](productsadmin/static/img/readme_img/arrows.png)
+
 ### Wireframe
 
 - Mobile wireframe: 
@@ -120,7 +123,7 @@ The navigation is a simple nav-bar at the top of the page with only 2 clickable 
      - https://www.flaticon.com/free-icon/add_992651?term=plus&page=1&position=5&page=1&position=5&related_id=992651&origin=search
      ![Add product](productsadmin/static/img/readme_img/add_icon.png)
 
-### Landing page
+### Pages
 
 - Landing page: the default page you will view products at
     - (at the moment there is only view functionality for the products, unless you are admin/staff)
@@ -679,4 +682,6 @@ The following people and pages have helped me during the process with this proje
 - Anders, My brother. He is my helpful design and functionality critic
 - Stackoverflow - for problem solving by reading others problems and solutions
 - Youtube, for checking out tutorials on Django
+    - Online Tutorials, a great page to learn css tips and tricks
     - Codemy.com is the goto page for help using Django
+- Ronan, my trusty mentor!
