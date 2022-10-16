@@ -503,6 +503,23 @@ This code is accuired from your profile page when logged in.
     - If the password doesn't match the username > They will be redirected back to login page with an error message
     ![Incorrect credentials](productsadmin/static/img/readme_img/wrong_creds.png)
 
+### Further testing 
+Further testing has been done via the following software and methods: 
+
+- Web browser
+  - Google Chrome
+  - Safari
+- Visual 
+  - Both HTML structure and CSS styling is tested on each web browser
+- Functionality testing
+  - Each button is tested and gives the corret values and/or 
+  - Responsive design tested automatically with http://ami.responsivedesign.is
+  - Responsive sizing tested manually with Chrome Dev tools Inspector
+    - Tablet and desktop version on screen size above 400px wide;
+    - Mobile version on screen size below 400px
+- Links target the correct page
+- Links that point to external sources open a new webpage with the correct targets
+- Modal popups display the correct information
 
 ### Pep8 testing python code
 
@@ -520,7 +537,6 @@ The following pages and files have been tested using www.pep8online.com:
 - Views.py
 ![Pep8 Views](productsadmin/static/img/readme_img/pep8_views.png)
 
-
 ### HTML Validator testing
 
 The HTML code check has been checked by https://validator.w3c.org
@@ -532,18 +548,10 @@ There are two warnings regarding the page:
 
 The Javascript has been checked by https://jigsaw.w3.org/css-validator/validator
 
+### Performance
 
-- Web browser
-  - Google Chrome
-  - Safari
-- Visual 
-  - Both HTML structure and CSS styling is tested on each web browser
-- Functionality testing
-  - Each button is tested
-  - Responsive design tested automatically with http://ami.responsivedesign.is
-  - Responsive sizing tested manually with Chrome Dev tools Inspector
-    - Tablet and desktop version on screen size above 400px wide;
-    - Mobile version on screen size below 400px
+The deployed webpage has been tested with the Lighthouse plugin for Google Chrome Web browser with the following results: 
+![Lighthouse](productsadmin/static/img/readme_img/lighthouse.png)
 
 ## Deployment
 
