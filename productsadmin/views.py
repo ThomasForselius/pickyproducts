@@ -137,12 +137,6 @@ def show(request):
 Adds a new product to the database
 '''
 def add_prod(request):
-    if request.user.is_superuser:
-        try:
-            prod = get_object_or_404(Product, id=prod_id)
-        except:
-            messages.warning(request, f"Product ID {prod_id} doesn't exist.")
-            return redirect('show')
     if request.method == "POST":
         name = request.POST.get("name")
         price = request.POST.get("price")
