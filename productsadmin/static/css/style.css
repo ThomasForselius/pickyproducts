@@ -171,7 +171,7 @@ label, .submit, article > input{
     display: block;
     margin: 0 auto;
     text-align: center;
-    width: 300px;
+    width: 250px;
 }
 
 input[type='checkbox']{
@@ -548,9 +548,8 @@ hr{
     text-align: left;
     width: 100%;
     margin: 5px auto;
-    border-radius: 0px;
-    border: none;
-    border-bottom: 1px solid #aaa;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
 .comment_form > input{
